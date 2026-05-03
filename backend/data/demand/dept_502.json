@@ -1,0 +1,94 @@
+{
+  "department_id": 502,
+  "department_name": "Hair Care",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "HA_A_001",
+      "segment": "A",
+      "item_name": "Hair Care - A Item 1",
+      "demand_mean": 125244.0,
+      "demand_std": 18787.0,
+      "unit_cost": 71.63,
+      "margin_pct": 44.4,
+      "pog_capacity": 47387.0
+    },
+    {
+      "cluster_id": "HA_A_002",
+      "segment": "A",
+      "item_name": "Hair Care - A Item 2",
+      "demand_mean": 131265.0,
+      "demand_std": 19690.0,
+      "unit_cost": 56.31,
+      "margin_pct": 43.0,
+      "pog_capacity": 52424.0
+    },
+    {
+      "cluster_id": "HA_B_003",
+      "segment": "B",
+      "item_name": "Hair Care - B Item 3",
+      "demand_mean": 47026.0,
+      "demand_std": 9405.0,
+      "unit_cost": 39.25,
+      "margin_pct": 48.1,
+      "pog_capacity": 39430.0
+    },
+    {
+      "cluster_id": "HA_B_004",
+      "segment": "B",
+      "item_name": "Hair Care - B Item 4",
+      "demand_mean": 61234.0,
+      "demand_std": 12247.0,
+      "unit_cost": 93.94,
+      "margin_pct": 52.5,
+      "pog_capacity": 25139.0
+    },
+    {
+      "cluster_id": "HA_C_005",
+      "segment": "C",
+      "item_name": "Hair Care - C Item 5",
+      "demand_mean": 35617.0,
+      "demand_std": 10685.0,
+      "unit_cost": 27.05,
+      "margin_pct": 62.1,
+      "pog_capacity": 21198.0
+    },
+    {
+      "cluster_id": "HA_C_006",
+      "segment": "C",
+      "item_name": "Hair Care - C Item 6",
+      "demand_mean": 23468.0,
+      "demand_std": 7040.0,
+      "unit_cost": 17.88,
+      "margin_pct": 64.4,
+      "pog_capacity": 12111.0
+    },
+    {
+      "cluster_id": "HA_R_007",
+      "segment": "R",
+      "item_name": "Hair Care - R Item 7",
+      "demand_mean": 58828.0,
+      "demand_std": 7059.0,
+      "unit_cost": 114.62,
+      "margin_pct": 49.5,
+      "pog_capacity": 24699.0
+    },
+    {
+      "cluster_id": "HA_R_008",
+      "segment": "R",
+      "item_name": "Hair Care - R Item 8",
+      "demand_mean": 58854.0,
+      "demand_std": 7063.0,
+      "unit_cost": 108.5,
+      "margin_pct": 42.3,
+      "pog_capacity": 21860.0
+    }
+  ],
+  "total_demand_value": 38471896.0,
+  "total_budget_needed": 30991708.0
+}

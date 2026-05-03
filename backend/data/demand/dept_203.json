@@ -1,0 +1,94 @@
+{
+  "department_id": 203,
+  "department_name": "Small Appliances",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "SM_A_001",
+      "segment": "A",
+      "item_name": "Small Appliances - A Item 1",
+      "demand_mean": 110092.0,
+      "demand_std": 16514.0,
+      "unit_cost": 90.6,
+      "margin_pct": 46.5,
+      "pog_capacity": 43950.0
+    },
+    {
+      "cluster_id": "SM_A_002",
+      "segment": "A",
+      "item_name": "Small Appliances - A Item 2",
+      "demand_mean": 110951.0,
+      "demand_std": 16643.0,
+      "unit_cost": 64.96,
+      "margin_pct": 44.7,
+      "pog_capacity": 57035.0
+    },
+    {
+      "cluster_id": "SM_B_003",
+      "segment": "B",
+      "item_name": "Small Appliances - B Item 3",
+      "demand_mean": 71841.0,
+      "demand_std": 14368.0,
+      "unit_cost": 41.88,
+      "margin_pct": 41.3,
+      "pog_capacity": 30309.0
+    },
+    {
+      "cluster_id": "SM_B_004",
+      "segment": "B",
+      "item_name": "Small Appliances - B Item 4",
+      "demand_mean": 65318.0,
+      "demand_std": 13064.0,
+      "unit_cost": 53.46,
+      "margin_pct": 52.3,
+      "pog_capacity": 35023.0
+    },
+    {
+      "cluster_id": "SM_C_005",
+      "segment": "C",
+      "item_name": "Small Appliances - C Item 5",
+      "demand_mean": 31820.0,
+      "demand_std": 9546.0,
+      "unit_cost": 20.62,
+      "margin_pct": 53.0,
+      "pog_capacity": 10366.0
+    },
+    {
+      "cluster_id": "SM_C_006",
+      "segment": "C",
+      "item_name": "Small Appliances - C Item 6",
+      "demand_mean": 21121.0,
+      "demand_std": 6336.0,
+      "unit_cost": 26.88,
+      "margin_pct": 62.7,
+      "pog_capacity": 11092.0
+    },
+    {
+      "cluster_id": "SM_R_007",
+      "segment": "R",
+      "item_name": "Small Appliances - R Item 7",
+      "demand_mean": 39505.0,
+      "demand_std": 4741.0,
+      "unit_cost": 89.27,
+      "margin_pct": 38.9,
+      "pog_capacity": 20445.0
+    },
+    {
+      "cluster_id": "SM_R_008",
+      "segment": "R",
+      "item_name": "Small Appliances - R Item 8",
+      "demand_mean": 42303.0,
+      "demand_std": 5076.0,
+      "unit_cost": 46.84,
+      "margin_pct": 48.1,
+      "pog_capacity": 10083.0
+    }
+  ],
+  "total_demand_value": 30414122.0,
+  "total_budget_needed": 33467267.0
+}

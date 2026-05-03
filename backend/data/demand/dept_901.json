@@ -1,0 +1,94 @@
+{
+  "department_id": 901,
+  "department_name": "Dog Supplies",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "DO_A_001",
+      "segment": "A",
+      "item_name": "Dog Supplies - A Item 1",
+      "demand_mean": 142711.0,
+      "demand_std": 21407.0,
+      "unit_cost": 81.48,
+      "margin_pct": 48.1,
+      "pog_capacity": 49555.0
+    },
+    {
+      "cluster_id": "DO_A_002",
+      "segment": "A",
+      "item_name": "Dog Supplies - A Item 2",
+      "demand_mean": 102507.0,
+      "demand_std": 15376.0,
+      "unit_cost": 83.29,
+      "margin_pct": 41.5,
+      "pog_capacity": 31856.0
+    },
+    {
+      "cluster_id": "DO_B_003",
+      "segment": "B",
+      "item_name": "Dog Supplies - B Item 3",
+      "demand_mean": 44140.0,
+      "demand_std": 8828.0,
+      "unit_cost": 92.94,
+      "margin_pct": 45.2,
+      "pog_capacity": 34286.0
+    },
+    {
+      "cluster_id": "DO_B_004",
+      "segment": "B",
+      "item_name": "Dog Supplies - B Item 4",
+      "demand_mean": 60182.0,
+      "demand_std": 12036.0,
+      "unit_cost": 42.08,
+      "margin_pct": 43.7,
+      "pog_capacity": 28755.0
+    },
+    {
+      "cluster_id": "DO_C_005",
+      "segment": "C",
+      "item_name": "Dog Supplies - C Item 5",
+      "demand_mean": 25986.0,
+      "demand_std": 7796.0,
+      "unit_cost": 28.07,
+      "margin_pct": 52.4,
+      "pog_capacity": 15593.0
+    },
+    {
+      "cluster_id": "DO_C_006",
+      "segment": "C",
+      "item_name": "Dog Supplies - C Item 6",
+      "demand_mean": 22072.0,
+      "demand_std": 6622.0,
+      "unit_cost": 25.22,
+      "margin_pct": 55.1,
+      "pog_capacity": 18968.0
+    },
+    {
+      "cluster_id": "DO_R_007",
+      "segment": "R",
+      "item_name": "Dog Supplies - R Item 7",
+      "demand_mean": 52623.0,
+      "demand_std": 6315.0,
+      "unit_cost": 91.2,
+      "margin_pct": 36.3,
+      "pog_capacity": 11418.0
+    },
+    {
+      "cluster_id": "DO_R_008",
+      "segment": "R",
+      "item_name": "Dog Supplies - R Item 8",
+      "demand_mean": 48743.0,
+      "demand_std": 5849.0,
+      "unit_cost": 51.26,
+      "margin_pct": 49.5,
+      "pog_capacity": 19848.0
+    }
+  ],
+  "total_demand_value": 35385084.0,
+  "total_budget_needed": 41136472.0
+}

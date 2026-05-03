@@ -1,0 +1,94 @@
+{
+  "department_id": 103,
+  "department_name": "Kids' Shoes",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 55.0,
+    "inseason_pct": 35.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "KI_A_001",
+      "segment": "A",
+      "item_name": "Kids' Shoes - A Item 1",
+      "demand_mean": 96033.0,
+      "demand_std": 14405.0,
+      "unit_cost": 52.25,
+      "margin_pct": 43.2,
+      "pog_capacity": 38032.0
+    },
+    {
+      "cluster_id": "KI_A_002",
+      "segment": "A",
+      "item_name": "Kids' Shoes - A Item 2",
+      "demand_mean": 94769.0,
+      "demand_std": 14215.0,
+      "unit_cost": 116.0,
+      "margin_pct": 48.8,
+      "pog_capacity": 39440.0
+    },
+    {
+      "cluster_id": "KI_B_003",
+      "segment": "B",
+      "item_name": "Kids' Shoes - B Item 3",
+      "demand_mean": 66218.0,
+      "demand_std": 13244.0,
+      "unit_cost": 57.69,
+      "margin_pct": 53.7,
+      "pog_capacity": 29177.0
+    },
+    {
+      "cluster_id": "KI_B_004",
+      "segment": "B",
+      "item_name": "Kids' Shoes - B Item 4",
+      "demand_mean": 50595.0,
+      "demand_std": 10119.0,
+      "unit_cost": 47.26,
+      "margin_pct": 48.4,
+      "pog_capacity": 25255.0
+    },
+    {
+      "cluster_id": "KI_C_005",
+      "segment": "C",
+      "item_name": "Kids' Shoes - C Item 5",
+      "demand_mean": 29615.0,
+      "demand_std": 8884.0,
+      "unit_cost": 37.45,
+      "margin_pct": 56.0,
+      "pog_capacity": 13290.0
+    },
+    {
+      "cluster_id": "KI_C_006",
+      "segment": "C",
+      "item_name": "Kids' Shoes - C Item 6",
+      "demand_mean": 39938.0,
+      "demand_std": 11982.0,
+      "unit_cost": 27.74,
+      "margin_pct": 51.4,
+      "pog_capacity": 10707.0
+    },
+    {
+      "cluster_id": "KI_R_007",
+      "segment": "R",
+      "item_name": "Kids' Shoes - R Item 7",
+      "demand_mean": 28838.0,
+      "demand_std": 3461.0,
+      "unit_cost": 89.02,
+      "margin_pct": 50.8,
+      "pog_capacity": 16332.0
+    },
+    {
+      "cluster_id": "KI_R_008",
+      "segment": "R",
+      "item_name": "Kids' Shoes - R Item 8",
+      "demand_mean": 27223.0,
+      "demand_std": 3267.0,
+      "unit_cost": 61.98,
+      "margin_pct": 54.9,
+      "pog_capacity": 17937.0
+    }
+  ],
+  "total_demand_value": 28693808.0,
+  "total_budget_needed": 34100620.0
+}

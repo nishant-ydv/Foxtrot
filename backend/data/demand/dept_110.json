@@ -1,0 +1,94 @@
+{
+  "department_id": 110,
+  "department_name": "Swimwear",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 55.0,
+    "inseason_pct": 35.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "SW_A_001",
+      "segment": "A",
+      "item_name": "Swimwear - A Item 1",
+      "demand_mean": 80677.0,
+      "demand_std": 12102.0,
+      "unit_cost": 55.27,
+      "margin_pct": 48.8,
+      "pog_capacity": 57118.0
+    },
+    {
+      "cluster_id": "SW_A_002",
+      "segment": "A",
+      "item_name": "Swimwear - A Item 2",
+      "demand_mean": 118191.0,
+      "demand_std": 17729.0,
+      "unit_cost": 108.42,
+      "margin_pct": 45.8,
+      "pog_capacity": 34443.0
+    },
+    {
+      "cluster_id": "SW_B_003",
+      "segment": "B",
+      "item_name": "Swimwear - B Item 3",
+      "demand_mean": 45098.0,
+      "demand_std": 9020.0,
+      "unit_cost": 51.58,
+      "margin_pct": 53.5,
+      "pog_capacity": 35922.0
+    },
+    {
+      "cluster_id": "SW_B_004",
+      "segment": "B",
+      "item_name": "Swimwear - B Item 4",
+      "demand_mean": 74428.0,
+      "demand_std": 14886.0,
+      "unit_cost": 92.92,
+      "margin_pct": 43.2,
+      "pog_capacity": 24991.0
+    },
+    {
+      "cluster_id": "SW_C_005",
+      "segment": "C",
+      "item_name": "Swimwear - C Item 5",
+      "demand_mean": 17570.0,
+      "demand_std": 5271.0,
+      "unit_cost": 34.5,
+      "margin_pct": 63.3,
+      "pog_capacity": 16096.0
+    },
+    {
+      "cluster_id": "SW_C_006",
+      "segment": "C",
+      "item_name": "Swimwear - C Item 6",
+      "demand_mean": 30517.0,
+      "demand_std": 9155.0,
+      "unit_cost": 18.86,
+      "margin_pct": 63.9,
+      "pog_capacity": 22969.0
+    },
+    {
+      "cluster_id": "SW_R_007",
+      "segment": "R",
+      "item_name": "Swimwear - R Item 7",
+      "demand_mean": 59167.0,
+      "demand_std": 7100.0,
+      "unit_cost": 109.18,
+      "margin_pct": 52.6,
+      "pog_capacity": 10372.0
+    },
+    {
+      "cluster_id": "SW_R_008",
+      "segment": "R",
+      "item_name": "Swimwear - R Item 8",
+      "demand_mean": 50780.0,
+      "demand_std": 6094.0,
+      "unit_cost": 56.54,
+      "margin_pct": 53.6,
+      "pog_capacity": 22034.0
+    }
+  ],
+  "total_demand_value": 37028686.0,
+  "total_budget_needed": 42421011.0
+}

@@ -1,0 +1,94 @@
+{
+  "department_id": 205,
+  "department_name": "Bath & Towels",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "BA_A_001",
+      "segment": "A",
+      "item_name": "Bath & Towels - A Item 1",
+      "demand_mean": 99020.0,
+      "demand_std": 14853.0,
+      "unit_cost": 72.38,
+      "margin_pct": 45.4,
+      "pog_capacity": 34151.0
+    },
+    {
+      "cluster_id": "BA_A_002",
+      "segment": "A",
+      "item_name": "Bath & Towels - A Item 2",
+      "demand_mean": 96188.0,
+      "demand_std": 14428.0,
+      "unit_cost": 98.58,
+      "margin_pct": 47.1,
+      "pog_capacity": 31927.0
+    },
+    {
+      "cluster_id": "BA_B_003",
+      "segment": "B",
+      "item_name": "Bath & Towels - B Item 3",
+      "demand_mean": 56304.0,
+      "demand_std": 11261.0,
+      "unit_cost": 67.98,
+      "margin_pct": 46.2,
+      "pog_capacity": 24137.0
+    },
+    {
+      "cluster_id": "BA_B_004",
+      "segment": "B",
+      "item_name": "Bath & Towels - B Item 4",
+      "demand_mean": 56806.0,
+      "demand_std": 11361.0,
+      "unit_cost": 93.34,
+      "margin_pct": 48.8,
+      "pog_capacity": 33910.0
+    },
+    {
+      "cluster_id": "BA_C_005",
+      "segment": "C",
+      "item_name": "Bath & Towels - C Item 5",
+      "demand_mean": 36418.0,
+      "demand_std": 10925.0,
+      "unit_cost": 34.14,
+      "margin_pct": 55.7,
+      "pog_capacity": 10088.0
+    },
+    {
+      "cluster_id": "BA_C_006",
+      "segment": "C",
+      "item_name": "Bath & Towels - C Item 6",
+      "demand_mean": 23794.0,
+      "demand_std": 7138.0,
+      "unit_cost": 33.84,
+      "margin_pct": 62.8,
+      "pog_capacity": 24301.0
+    },
+    {
+      "cluster_id": "BA_R_007",
+      "segment": "R",
+      "item_name": "Bath & Towels - R Item 7",
+      "demand_mean": 39666.0,
+      "demand_std": 4760.0,
+      "unit_cost": 102.23,
+      "margin_pct": 45.9,
+      "pog_capacity": 19049.0
+    },
+    {
+      "cluster_id": "BA_R_008",
+      "segment": "R",
+      "item_name": "Bath & Towels - R Item 8",
+      "demand_mean": 32719.0,
+      "demand_std": 3926.0,
+      "unit_cost": 44.14,
+      "margin_pct": 43.7,
+      "pog_capacity": 10435.0
+    }
+  ],
+  "total_demand_value": 33326239.0,
+  "total_budget_needed": 31141764.0
+}

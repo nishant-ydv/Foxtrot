@@ -1,0 +1,94 @@
+{
+  "department_id": 207,
+  "department_name": "Lighting",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "LI_A_001",
+      "segment": "A",
+      "item_name": "Lighting - A Item 1",
+      "demand_mean": 81427.0,
+      "demand_std": 12214.0,
+      "unit_cost": 60.67,
+      "margin_pct": 41.3,
+      "pog_capacity": 50084.0
+    },
+    {
+      "cluster_id": "LI_A_002",
+      "segment": "A",
+      "item_name": "Lighting - A Item 2",
+      "demand_mean": 119478.0,
+      "demand_std": 17922.0,
+      "unit_cost": 65.26,
+      "margin_pct": 47.0,
+      "pog_capacity": 53007.0
+    },
+    {
+      "cluster_id": "LI_B_003",
+      "segment": "B",
+      "item_name": "Lighting - B Item 3",
+      "demand_mean": 46712.0,
+      "demand_std": 9342.0,
+      "unit_cost": 72.51,
+      "margin_pct": 51.2,
+      "pog_capacity": 22291.0
+    },
+    {
+      "cluster_id": "LI_B_004",
+      "segment": "B",
+      "item_name": "Lighting - B Item 4",
+      "demand_mean": 72772.0,
+      "demand_std": 14554.0,
+      "unit_cost": 97.53,
+      "margin_pct": 41.6,
+      "pog_capacity": 20514.0
+    },
+    {
+      "cluster_id": "LI_C_005",
+      "segment": "C",
+      "item_name": "Lighting - C Item 5",
+      "demand_mean": 22799.0,
+      "demand_std": 6840.0,
+      "unit_cost": 31.93,
+      "margin_pct": 64.4,
+      "pog_capacity": 15950.0
+    },
+    {
+      "cluster_id": "LI_C_006",
+      "segment": "C",
+      "item_name": "Lighting - C Item 6",
+      "demand_mean": 32875.0,
+      "demand_std": 9863.0,
+      "unit_cost": 16.9,
+      "margin_pct": 60.4,
+      "pog_capacity": 19409.0
+    },
+    {
+      "cluster_id": "LI_R_007",
+      "segment": "R",
+      "item_name": "Lighting - R Item 7",
+      "demand_mean": 28567.0,
+      "demand_std": 3428.0,
+      "unit_cost": 104.97,
+      "margin_pct": 52.0,
+      "pog_capacity": 19006.0
+    },
+    {
+      "cluster_id": "LI_R_008",
+      "segment": "R",
+      "item_name": "Lighting - R Item 8",
+      "demand_mean": 29237.0,
+      "demand_std": 3508.0,
+      "unit_cost": 128.22,
+      "margin_pct": 50.7,
+      "pog_capacity": 15208.0
+    }
+  ],
+  "total_demand_value": 31252340.0,
+  "total_budget_needed": 30356998.0
+}

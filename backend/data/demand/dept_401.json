@@ -1,0 +1,94 @@
+{
+  "department_id": 401,
+  "department_name": "Fresh Produce",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 20.0,
+    "inseason_pct": 70.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "FR_A_001",
+      "segment": "A",
+      "item_name": "Fresh Produce - A Item 1",
+      "demand_mean": 105325.0,
+      "demand_std": 15799.0,
+      "unit_cost": 102.95,
+      "margin_pct": 46.3,
+      "pog_capacity": 52800.0
+    },
+    {
+      "cluster_id": "FR_A_002",
+      "segment": "A",
+      "item_name": "Fresh Produce - A Item 2",
+      "demand_mean": 94249.0,
+      "demand_std": 14137.0,
+      "unit_cost": 88.45,
+      "margin_pct": 49.3,
+      "pog_capacity": 43143.0
+    },
+    {
+      "cluster_id": "FR_B_003",
+      "segment": "B",
+      "item_name": "Fresh Produce - B Item 3",
+      "demand_mean": 67930.0,
+      "demand_std": 13586.0,
+      "unit_cost": 38.5,
+      "margin_pct": 54.6,
+      "pog_capacity": 32177.0
+    },
+    {
+      "cluster_id": "FR_B_004",
+      "segment": "B",
+      "item_name": "Fresh Produce - B Item 4",
+      "demand_mean": 49572.0,
+      "demand_std": 9914.0,
+      "unit_cost": 41.09,
+      "margin_pct": 48.3,
+      "pog_capacity": 31045.0
+    },
+    {
+      "cluster_id": "FR_C_005",
+      "segment": "C",
+      "item_name": "Fresh Produce - C Item 5",
+      "demand_mean": 17330.0,
+      "demand_std": 5199.0,
+      "unit_cost": 39.81,
+      "margin_pct": 63.7,
+      "pog_capacity": 16922.0
+    },
+    {
+      "cluster_id": "FR_C_006",
+      "segment": "C",
+      "item_name": "Fresh Produce - C Item 6",
+      "demand_mean": 17937.0,
+      "demand_std": 5381.0,
+      "unit_cost": 35.8,
+      "margin_pct": 57.5,
+      "pog_capacity": 20749.0
+    },
+    {
+      "cluster_id": "FR_R_007",
+      "segment": "R",
+      "item_name": "Fresh Produce - R Item 7",
+      "demand_mean": 42811.0,
+      "demand_std": 5137.0,
+      "unit_cost": 50.08,
+      "margin_pct": 51.7,
+      "pog_capacity": 24704.0
+    },
+    {
+      "cluster_id": "FR_R_008",
+      "segment": "R",
+      "item_name": "Fresh Produce - R Item 8",
+      "demand_mean": 33531.0,
+      "demand_std": 4024.0,
+      "unit_cost": 80.64,
+      "margin_pct": 42.7,
+      "pog_capacity": 23828.0
+    }
+  ],
+  "total_demand_value": 30010933.0,
+  "total_budget_needed": 30109860.0
+}

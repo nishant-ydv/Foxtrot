@@ -1,0 +1,94 @@
+{
+  "department_id": 802,
+  "department_name": "Games & Puzzles",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 45.0,
+    "inseason_pct": 40.0,
+    "markdown_pct": 15.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "GA_A_001",
+      "segment": "A",
+      "item_name": "Games & Puzzles - A Item 1",
+      "demand_mean": 133215.0,
+      "demand_std": 19982.0,
+      "unit_cost": 95.89,
+      "margin_pct": 41.8,
+      "pog_capacity": 53185.0
+    },
+    {
+      "cluster_id": "GA_A_002",
+      "segment": "A",
+      "item_name": "Games & Puzzles - A Item 2",
+      "demand_mean": 114588.0,
+      "demand_std": 17188.0,
+      "unit_cost": 102.81,
+      "margin_pct": 47.6,
+      "pog_capacity": 43467.0
+    },
+    {
+      "cluster_id": "GA_B_003",
+      "segment": "B",
+      "item_name": "Games & Puzzles - B Item 3",
+      "demand_mean": 76966.0,
+      "demand_std": 15393.0,
+      "unit_cost": 69.51,
+      "margin_pct": 49.5,
+      "pog_capacity": 32490.0
+    },
+    {
+      "cluster_id": "GA_B_004",
+      "segment": "B",
+      "item_name": "Games & Puzzles - B Item 4",
+      "demand_mean": 74570.0,
+      "demand_std": 14914.0,
+      "unit_cost": 73.91,
+      "margin_pct": 42.3,
+      "pog_capacity": 21366.0
+    },
+    {
+      "cluster_id": "GA_C_005",
+      "segment": "C",
+      "item_name": "Games & Puzzles - C Item 5",
+      "demand_mean": 26055.0,
+      "demand_std": 7817.0,
+      "unit_cost": 22.57,
+      "margin_pct": 54.1,
+      "pog_capacity": 10843.0
+    },
+    {
+      "cluster_id": "GA_C_006",
+      "segment": "C",
+      "item_name": "Games & Puzzles - C Item 6",
+      "demand_mean": 27683.0,
+      "demand_std": 8305.0,
+      "unit_cost": 22.76,
+      "margin_pct": 56.8,
+      "pog_capacity": 10853.0
+    },
+    {
+      "cluster_id": "GA_R_007",
+      "segment": "R",
+      "item_name": "Games & Puzzles - R Item 7",
+      "demand_mean": 54109.0,
+      "demand_std": 6493.0,
+      "unit_cost": 28.44,
+      "margin_pct": 52.3,
+      "pog_capacity": 22829.0
+    },
+    {
+      "cluster_id": "GA_R_008",
+      "segment": "R",
+      "item_name": "Games & Puzzles - R Item 8",
+      "demand_mean": 46525.0,
+      "demand_std": 5583.0,
+      "unit_cost": 75.78,
+      "margin_pct": 44.3,
+      "pog_capacity": 18315.0
+    }
+  ],
+  "total_demand_value": 41698344.0,
+  "total_budget_needed": 46565672.0
+}

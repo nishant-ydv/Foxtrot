@@ -1,0 +1,94 @@
+{
+  "department_id": 202,
+  "department_name": "Bedding",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "BE_A_001",
+      "segment": "A",
+      "item_name": "Bedding - A Item 1",
+      "demand_mean": 115800.0,
+      "demand_std": 17370.0,
+      "unit_cost": 76.96,
+      "margin_pct": 45.8,
+      "pog_capacity": 37642.0
+    },
+    {
+      "cluster_id": "BE_A_002",
+      "segment": "A",
+      "item_name": "Bedding - A Item 2",
+      "demand_mean": 129615.0,
+      "demand_std": 19442.0,
+      "unit_cost": 50.12,
+      "margin_pct": 49.3,
+      "pog_capacity": 46154.0
+    },
+    {
+      "cluster_id": "BE_B_003",
+      "segment": "B",
+      "item_name": "Bedding - B Item 3",
+      "demand_mean": 68777.0,
+      "demand_std": 13755.0,
+      "unit_cost": 81.94,
+      "margin_pct": 50.1,
+      "pog_capacity": 27284.0
+    },
+    {
+      "cluster_id": "BE_B_004",
+      "segment": "B",
+      "item_name": "Bedding - B Item 4",
+      "demand_mean": 42799.0,
+      "demand_std": 8560.0,
+      "unit_cost": 76.5,
+      "margin_pct": 45.0,
+      "pog_capacity": 26278.0
+    },
+    {
+      "cluster_id": "BE_C_005",
+      "segment": "C",
+      "item_name": "Bedding - C Item 5",
+      "demand_mean": 36200.0,
+      "demand_std": 10860.0,
+      "unit_cost": 32.99,
+      "margin_pct": 54.5,
+      "pog_capacity": 14639.0
+    },
+    {
+      "cluster_id": "BE_C_006",
+      "segment": "C",
+      "item_name": "Bedding - C Item 6",
+      "demand_mean": 25210.0,
+      "demand_std": 7563.0,
+      "unit_cost": 25.06,
+      "margin_pct": 54.4,
+      "pog_capacity": 11909.0
+    },
+    {
+      "cluster_id": "BE_R_007",
+      "segment": "R",
+      "item_name": "Bedding - R Item 7",
+      "demand_mean": 39716.0,
+      "demand_std": 4766.0,
+      "unit_cost": 123.44,
+      "margin_pct": 48.5,
+      "pog_capacity": 23542.0
+    },
+    {
+      "cluster_id": "BE_R_008",
+      "segment": "R",
+      "item_name": "Bedding - R Item 8",
+      "demand_mean": 46543.0,
+      "demand_std": 5585.0,
+      "unit_cost": 53.1,
+      "margin_pct": 46.0,
+      "pog_capacity": 10006.0
+    }
+  ],
+  "total_demand_value": 33518086.0,
+  "total_budget_needed": 30661188.0
+}

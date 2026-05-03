@@ -1,0 +1,94 @@
+{
+  "department_id": 503,
+  "department_name": "Makeup & Cosmetics",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "MA_A_001",
+      "segment": "A",
+      "item_name": "Makeup & Cosmetics - A Item 1",
+      "demand_mean": 117560.0,
+      "demand_std": 17634.0,
+      "unit_cost": 81.84,
+      "margin_pct": 46.7,
+      "pog_capacity": 50170.0
+    },
+    {
+      "cluster_id": "MA_A_002",
+      "segment": "A",
+      "item_name": "Makeup & Cosmetics - A Item 2",
+      "demand_mean": 120919.0,
+      "demand_std": 18138.0,
+      "unit_cost": 107.57,
+      "margin_pct": 49.4,
+      "pog_capacity": 33250.0
+    },
+    {
+      "cluster_id": "MA_B_003",
+      "segment": "B",
+      "item_name": "Makeup & Cosmetics - B Item 3",
+      "demand_mean": 49353.0,
+      "demand_std": 9871.0,
+      "unit_cost": 31.75,
+      "margin_pct": 53.3,
+      "pog_capacity": 31228.0
+    },
+    {
+      "cluster_id": "MA_B_004",
+      "segment": "B",
+      "item_name": "Makeup & Cosmetics - B Item 4",
+      "demand_mean": 76610.0,
+      "demand_std": 15322.0,
+      "unit_cost": 45.5,
+      "margin_pct": 40.9,
+      "pog_capacity": 36477.0
+    },
+    {
+      "cluster_id": "MA_C_005",
+      "segment": "C",
+      "item_name": "Makeup & Cosmetics - C Item 5",
+      "demand_mean": 37735.0,
+      "demand_std": 11320.0,
+      "unit_cost": 22.55,
+      "margin_pct": 56.1,
+      "pog_capacity": 12097.0
+    },
+    {
+      "cluster_id": "MA_C_006",
+      "segment": "C",
+      "item_name": "Makeup & Cosmetics - C Item 6",
+      "demand_mean": 38657.0,
+      "demand_std": 11597.0,
+      "unit_cost": 22.61,
+      "margin_pct": 57.4,
+      "pog_capacity": 11458.0
+    },
+    {
+      "cluster_id": "MA_R_007",
+      "segment": "R",
+      "item_name": "Makeup & Cosmetics - R Item 7",
+      "demand_mean": 56054.0,
+      "demand_std": 6726.0,
+      "unit_cost": 34.92,
+      "margin_pct": 44.1,
+      "pog_capacity": 20057.0
+    },
+    {
+      "cluster_id": "MA_R_008",
+      "segment": "R",
+      "item_name": "Makeup & Cosmetics - R Item 8",
+      "demand_mean": 51010.0,
+      "demand_std": 6121.0,
+      "unit_cost": 124.06,
+      "margin_pct": 43.4,
+      "pog_capacity": 21134.0
+    }
+  ],
+  "total_demand_value": 37690999.0,
+  "total_budget_needed": 32482448.0
+}

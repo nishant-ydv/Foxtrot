@@ -1,0 +1,46 @@
+{
+  "segments": [
+    {
+      "id": "A",
+      "name": "High-Velocity",
+      "description": "Top-performing SKUs with high demand volume and margin",
+      "default_dcc": 98.0,
+      "default_safety_stock_pct": 30.0,
+      "priority": 1,
+      "z_score": 2.05
+    },
+    {
+      "id": "B",
+      "name": "Mid-Velocity",
+      "description": "Moderate demand volume, steady performers",
+      "default_dcc": 95.0,
+      "default_safety_stock_pct": 25.0,
+      "priority": 2,
+      "z_score": 1.64
+    },
+    {
+      "id": "C",
+      "name": "Low-Velocity",
+      "description": "Low demand volume, slow movers",
+      "default_dcc": 90.0,
+      "default_safety_stock_pct": 20.0,
+      "priority": 3,
+      "z_score": 1.28
+    },
+    {
+      "id": "R",
+      "name": "Reliability",
+      "description": "Must-have items that customers expect always in stock",
+      "default_dcc": 99.0,
+      "default_safety_stock_pct": 35.0,
+      "priority": 0,
+      "z_score": 2.33
+    }
+  ],
+  "preseason_allocation_fashion": 60.0,
+  "preseason_allocation_basics": 20.0,
+  "inseason_allocation_fashion": 30.0,
+  "inseason_allocation_basics": 70.0,
+  "markdown_reserve_fashion": 10.0,
+  "markdown_reserve_basics": 10.0
+}

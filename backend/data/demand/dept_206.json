@@ -1,0 +1,94 @@
+{
+  "department_id": 206,
+  "department_name": "Furniture",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "FU_A_001",
+      "segment": "A",
+      "item_name": "Furniture - A Item 1",
+      "demand_mean": 127540.0,
+      "demand_std": 19131.0,
+      "unit_cost": 78.3,
+      "margin_pct": 41.7,
+      "pog_capacity": 44022.0
+    },
+    {
+      "cluster_id": "FU_A_002",
+      "segment": "A",
+      "item_name": "Furniture - A Item 2",
+      "demand_mean": 88934.0,
+      "demand_std": 13340.0,
+      "unit_cost": 93.56,
+      "margin_pct": 40.3,
+      "pog_capacity": 41821.0
+    },
+    {
+      "cluster_id": "FU_B_003",
+      "segment": "B",
+      "item_name": "Furniture - B Item 3",
+      "demand_mean": 62576.0,
+      "demand_std": 12515.0,
+      "unit_cost": 31.9,
+      "margin_pct": 49.6,
+      "pog_capacity": 22714.0
+    },
+    {
+      "cluster_id": "FU_B_004",
+      "segment": "B",
+      "item_name": "Furniture - B Item 4",
+      "demand_mean": 58468.0,
+      "demand_std": 11694.0,
+      "unit_cost": 33.52,
+      "margin_pct": 45.7,
+      "pog_capacity": 24233.0
+    },
+    {
+      "cluster_id": "FU_C_005",
+      "segment": "C",
+      "item_name": "Furniture - C Item 5",
+      "demand_mean": 23171.0,
+      "demand_std": 6951.0,
+      "unit_cost": 34.03,
+      "margin_pct": 55.7,
+      "pog_capacity": 21280.0
+    },
+    {
+      "cluster_id": "FU_C_006",
+      "segment": "C",
+      "item_name": "Furniture - C Item 6",
+      "demand_mean": 35798.0,
+      "demand_std": 10739.0,
+      "unit_cost": 21.31,
+      "margin_pct": 51.2,
+      "pog_capacity": 10291.0
+    },
+    {
+      "cluster_id": "FU_R_007",
+      "segment": "R",
+      "item_name": "Furniture - R Item 7",
+      "demand_mean": 43880.0,
+      "demand_std": 5266.0,
+      "unit_cost": 129.99,
+      "margin_pct": 42.0,
+      "pog_capacity": 19752.0
+    },
+    {
+      "cluster_id": "FU_R_008",
+      "segment": "R",
+      "item_name": "Furniture - R Item 8",
+      "demand_mean": 52343.0,
+      "demand_std": 6281.0,
+      "unit_cost": 91.69,
+      "margin_pct": 50.1,
+      "pog_capacity": 24244.0
+    }
+  ],
+  "total_demand_value": 34317648.0,
+  "total_budget_needed": 30190754.0
+}

@@ -1,0 +1,94 @@
+{
+  "department_id": 302,
+  "department_name": "Smartphones & Accessories",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "SM_A_001",
+      "segment": "A",
+      "item_name": "Smartphones & Accessories - A Item 1",
+      "demand_mean": 95147.0,
+      "demand_std": 14272.0,
+      "unit_cost": 83.89,
+      "margin_pct": 47.2,
+      "pog_capacity": 59298.0
+    },
+    {
+      "cluster_id": "SM_A_002",
+      "segment": "A",
+      "item_name": "Smartphones & Accessories - A Item 2",
+      "demand_mean": 116725.0,
+      "demand_std": 17509.0,
+      "unit_cost": 69.81,
+      "margin_pct": 41.0,
+      "pog_capacity": 35824.0
+    },
+    {
+      "cluster_id": "SM_B_003",
+      "segment": "B",
+      "item_name": "Smartphones & Accessories - B Item 3",
+      "demand_mean": 49099.0,
+      "demand_std": 9820.0,
+      "unit_cost": 42.56,
+      "margin_pct": 40.2,
+      "pog_capacity": 30683.0
+    },
+    {
+      "cluster_id": "SM_B_004",
+      "segment": "B",
+      "item_name": "Smartphones & Accessories - B Item 4",
+      "demand_mean": 50972.0,
+      "demand_std": 10194.0,
+      "unit_cost": 98.2,
+      "margin_pct": 48.3,
+      "pog_capacity": 33948.0
+    },
+    {
+      "cluster_id": "SM_C_005",
+      "segment": "C",
+      "item_name": "Smartphones & Accessories - C Item 5",
+      "demand_mean": 18157.0,
+      "demand_std": 5447.0,
+      "unit_cost": 36.71,
+      "margin_pct": 57.4,
+      "pog_capacity": 23091.0
+    },
+    {
+      "cluster_id": "SM_C_006",
+      "segment": "C",
+      "item_name": "Smartphones & Accessories - C Item 6",
+      "demand_mean": 29352.0,
+      "demand_std": 8805.0,
+      "unit_cost": 26.73,
+      "margin_pct": 56.6,
+      "pog_capacity": 12765.0
+    },
+    {
+      "cluster_id": "SM_R_007",
+      "segment": "R",
+      "item_name": "Smartphones & Accessories - R Item 7",
+      "demand_mean": 26798.0,
+      "demand_std": 3216.0,
+      "unit_cost": 123.52,
+      "margin_pct": 44.6,
+      "pog_capacity": 22332.0
+    },
+    {
+      "cluster_id": "SM_R_008",
+      "segment": "R",
+      "item_name": "Smartphones & Accessories - R Item 8",
+      "demand_mean": 39025.0,
+      "demand_std": 4683.0,
+      "unit_cost": 28.15,
+      "margin_pct": 47.6,
+      "pog_capacity": 10804.0
+    }
+  ],
+  "total_demand_value": 29085843.0,
+  "total_budget_needed": 25004490.0
+}

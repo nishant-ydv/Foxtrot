@@ -1,0 +1,94 @@
+{
+  "department_id": 104,
+  "department_name": "Outerwear",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 55.0,
+    "inseason_pct": 35.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "OU_A_001",
+      "segment": "A",
+      "item_name": "Outerwear - A Item 1",
+      "demand_mean": 140255.0,
+      "demand_std": 21038.0,
+      "unit_cost": 50.8,
+      "margin_pct": 47.2,
+      "pog_capacity": 50451.0
+    },
+    {
+      "cluster_id": "OU_A_002",
+      "segment": "A",
+      "item_name": "Outerwear - A Item 2",
+      "demand_mean": 117588.0,
+      "demand_std": 17638.0,
+      "unit_cost": 68.68,
+      "margin_pct": 46.4,
+      "pog_capacity": 33347.0
+    },
+    {
+      "cluster_id": "OU_B_003",
+      "segment": "B",
+      "item_name": "Outerwear - B Item 3",
+      "demand_mean": 57391.0,
+      "demand_std": 11478.0,
+      "unit_cost": 61.76,
+      "margin_pct": 54.3,
+      "pog_capacity": 37517.0
+    },
+    {
+      "cluster_id": "OU_B_004",
+      "segment": "B",
+      "item_name": "Outerwear - B Item 4",
+      "demand_mean": 50536.0,
+      "demand_std": 10107.0,
+      "unit_cost": 65.04,
+      "margin_pct": 42.7,
+      "pog_capacity": 38253.0
+    },
+    {
+      "cluster_id": "OU_C_005",
+      "segment": "C",
+      "item_name": "Outerwear - C Item 5",
+      "demand_mean": 36763.0,
+      "demand_std": 11029.0,
+      "unit_cost": 22.46,
+      "margin_pct": 59.6,
+      "pog_capacity": 19135.0
+    },
+    {
+      "cluster_id": "OU_C_006",
+      "segment": "C",
+      "item_name": "Outerwear - C Item 6",
+      "demand_mean": 18821.0,
+      "demand_std": 5646.0,
+      "unit_cost": 34.06,
+      "margin_pct": 58.1,
+      "pog_capacity": 21679.0
+    },
+    {
+      "cluster_id": "OU_R_007",
+      "segment": "R",
+      "item_name": "Outerwear - R Item 7",
+      "demand_mean": 43562.0,
+      "demand_std": 5227.0,
+      "unit_cost": 20.06,
+      "margin_pct": 41.5,
+      "pog_capacity": 10292.0
+    },
+    {
+      "cluster_id": "OU_R_008",
+      "segment": "R",
+      "item_name": "Outerwear - R Item 8",
+      "demand_mean": 57518.0,
+      "demand_std": 6902.0,
+      "unit_cost": 116.66,
+      "margin_pct": 51.6,
+      "pog_capacity": 14613.0
+    }
+  ],
+  "total_demand_value": 31083379.0,
+  "total_budget_needed": 25586907.0
+}

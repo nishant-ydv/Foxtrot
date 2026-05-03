@@ -1,0 +1,94 @@
+{
+  "department_id": 702,
+  "department_name": "Automotive Parts",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 40.0,
+    "inseason_pct": 50.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "AU_A_001",
+      "segment": "A",
+      "item_name": "Automotive Parts - A Item 1",
+      "demand_mean": 113996.0,
+      "demand_std": 17099.0,
+      "unit_cost": 80.94,
+      "margin_pct": 42.7,
+      "pog_capacity": 52648.0
+    },
+    {
+      "cluster_id": "AU_A_002",
+      "segment": "A",
+      "item_name": "Automotive Parts - A Item 2",
+      "demand_mean": 87967.0,
+      "demand_std": 13195.0,
+      "unit_cost": 80.09,
+      "margin_pct": 42.8,
+      "pog_capacity": 50355.0
+    },
+    {
+      "cluster_id": "AU_B_003",
+      "segment": "B",
+      "item_name": "Automotive Parts - B Item 3",
+      "demand_mean": 59465.0,
+      "demand_std": 11893.0,
+      "unit_cost": 76.7,
+      "margin_pct": 40.7,
+      "pog_capacity": 27905.0
+    },
+    {
+      "cluster_id": "AU_B_004",
+      "segment": "B",
+      "item_name": "Automotive Parts - B Item 4",
+      "demand_mean": 63973.0,
+      "demand_std": 12795.0,
+      "unit_cost": 30.54,
+      "margin_pct": 44.5,
+      "pog_capacity": 24225.0
+    },
+    {
+      "cluster_id": "AU_C_005",
+      "segment": "C",
+      "item_name": "Automotive Parts - C Item 5",
+      "demand_mean": 18431.0,
+      "demand_std": 5529.0,
+      "unit_cost": 21.39,
+      "margin_pct": 54.9,
+      "pog_capacity": 10116.0
+    },
+    {
+      "cluster_id": "AU_C_006",
+      "segment": "C",
+      "item_name": "Automotive Parts - C Item 6",
+      "demand_mean": 33675.0,
+      "demand_std": 10103.0,
+      "unit_cost": 19.39,
+      "margin_pct": 55.7,
+      "pog_capacity": 20555.0
+    },
+    {
+      "cluster_id": "AU_R_007",
+      "segment": "R",
+      "item_name": "Automotive Parts - R Item 7",
+      "demand_mean": 42509.0,
+      "demand_std": 5101.0,
+      "unit_cost": 111.67,
+      "margin_pct": 51.1,
+      "pog_capacity": 11081.0
+    },
+    {
+      "cluster_id": "AU_R_008",
+      "segment": "R",
+      "item_name": "Automotive Parts - R Item 8",
+      "demand_mean": 55162.0,
+      "demand_std": 6619.0,
+      "unit_cost": 24.65,
+      "margin_pct": 35.4,
+      "pog_capacity": 23817.0
+    }
+  ],
+  "total_demand_value": 29941534.0,
+  "total_budget_needed": 34278386.0
+}

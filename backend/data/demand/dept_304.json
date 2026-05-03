@@ -1,0 +1,94 @@
+{
+  "department_id": 304,
+  "department_name": "Gaming",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "GA_A_001",
+      "segment": "A",
+      "item_name": "Gaming - A Item 1",
+      "demand_mean": 144674.0,
+      "demand_std": 21701.0,
+      "unit_cost": 105.15,
+      "margin_pct": 46.3,
+      "pog_capacity": 49835.0
+    },
+    {
+      "cluster_id": "GA_A_002",
+      "segment": "A",
+      "item_name": "Gaming - A Item 2",
+      "demand_mean": 145357.0,
+      "demand_std": 21804.0,
+      "unit_cost": 79.76,
+      "margin_pct": 45.4,
+      "pog_capacity": 49429.0
+    },
+    {
+      "cluster_id": "GA_B_003",
+      "segment": "B",
+      "item_name": "Gaming - B Item 3",
+      "demand_mean": 76336.0,
+      "demand_std": 15267.0,
+      "unit_cost": 87.86,
+      "margin_pct": 41.1,
+      "pog_capacity": 23318.0
+    },
+    {
+      "cluster_id": "GA_B_004",
+      "segment": "B",
+      "item_name": "Gaming - B Item 4",
+      "demand_mean": 52304.0,
+      "demand_std": 10461.0,
+      "unit_cost": 82.43,
+      "margin_pct": 48.5,
+      "pog_capacity": 25772.0
+    },
+    {
+      "cluster_id": "GA_C_005",
+      "segment": "C",
+      "item_name": "Gaming - C Item 5",
+      "demand_mean": 18109.0,
+      "demand_std": 5433.0,
+      "unit_cost": 32.22,
+      "margin_pct": 60.5,
+      "pog_capacity": 24140.0
+    },
+    {
+      "cluster_id": "GA_C_006",
+      "segment": "C",
+      "item_name": "Gaming - C Item 6",
+      "demand_mean": 27512.0,
+      "demand_std": 8254.0,
+      "unit_cost": 27.34,
+      "margin_pct": 51.2,
+      "pog_capacity": 10598.0
+    },
+    {
+      "cluster_id": "GA_R_007",
+      "segment": "R",
+      "item_name": "Gaming - R Item 7",
+      "demand_mean": 40121.0,
+      "demand_std": 4815.0,
+      "unit_cost": 55.46,
+      "margin_pct": 40.0,
+      "pog_capacity": 11370.0
+    },
+    {
+      "cluster_id": "GA_R_008",
+      "segment": "R",
+      "item_name": "Gaming - R Item 8",
+      "demand_mean": 58667.0,
+      "demand_std": 7040.0,
+      "unit_cost": 111.96,
+      "margin_pct": 46.5,
+      "pog_capacity": 24262.0
+    }
+  ],
+  "total_demand_value": 47953035.0,
+  "total_budget_needed": 57535441.0
+}

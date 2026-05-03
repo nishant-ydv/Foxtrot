@@ -1,0 +1,94 @@
+{
+  "department_id": 107,
+  "department_name": "Dresses & Skirts",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 55.0,
+    "inseason_pct": 35.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "DR_A_001",
+      "segment": "A",
+      "item_name": "Dresses & Skirts - A Item 1",
+      "demand_mean": 149950.0,
+      "demand_std": 22492.0,
+      "unit_cost": 108.52,
+      "margin_pct": 49.7,
+      "pog_capacity": 57791.0
+    },
+    {
+      "cluster_id": "DR_A_002",
+      "segment": "A",
+      "item_name": "Dresses & Skirts - A Item 2",
+      "demand_mean": 139409.0,
+      "demand_std": 20911.0,
+      "unit_cost": 61.64,
+      "margin_pct": 44.9,
+      "pog_capacity": 36412.0
+    },
+    {
+      "cluster_id": "DR_B_003",
+      "segment": "B",
+      "item_name": "Dresses & Skirts - B Item 3",
+      "demand_mean": 56042.0,
+      "demand_std": 11208.0,
+      "unit_cost": 34.1,
+      "margin_pct": 45.7,
+      "pog_capacity": 39706.0
+    },
+    {
+      "cluster_id": "DR_B_004",
+      "segment": "B",
+      "item_name": "Dresses & Skirts - B Item 4",
+      "demand_mean": 50608.0,
+      "demand_std": 10122.0,
+      "unit_cost": 84.88,
+      "margin_pct": 46.8,
+      "pog_capacity": 28460.0
+    },
+    {
+      "cluster_id": "DR_C_005",
+      "segment": "C",
+      "item_name": "Dresses & Skirts - C Item 5",
+      "demand_mean": 38933.0,
+      "demand_std": 11680.0,
+      "unit_cost": 39.89,
+      "margin_pct": 58.3,
+      "pog_capacity": 20776.0
+    },
+    {
+      "cluster_id": "DR_C_006",
+      "segment": "C",
+      "item_name": "Dresses & Skirts - C Item 6",
+      "demand_mean": 18870.0,
+      "demand_std": 5661.0,
+      "unit_cost": 22.42,
+      "margin_pct": 64.5,
+      "pog_capacity": 18688.0
+    },
+    {
+      "cluster_id": "DR_R_007",
+      "segment": "R",
+      "item_name": "Dresses & Skirts - R Item 7",
+      "demand_mean": 43977.0,
+      "demand_std": 5277.0,
+      "unit_cost": 102.28,
+      "margin_pct": 36.1,
+      "pog_capacity": 18763.0
+    },
+    {
+      "cluster_id": "DR_R_008",
+      "segment": "R",
+      "item_name": "Dresses & Skirts - R Item 8",
+      "demand_mean": 42600.0,
+      "demand_std": 5112.0,
+      "unit_cost": 113.8,
+      "margin_pct": 38.1,
+      "pog_capacity": 24412.0
+    }
+  ],
+  "total_demand_value": 42394910.0,
+  "total_budget_needed": 35274455.0
+}

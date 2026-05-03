@@ -1,0 +1,94 @@
+{
+  "department_id": 204,
+  "department_name": "Home Decor",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 25.0,
+    "inseason_pct": 65.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "HO_A_001",
+      "segment": "A",
+      "item_name": "Home Decor - A Item 1",
+      "demand_mean": 133903.0,
+      "demand_std": 20085.0,
+      "unit_cost": 57.46,
+      "margin_pct": 44.3,
+      "pog_capacity": 35277.0
+    },
+    {
+      "cluster_id": "HO_A_002",
+      "segment": "A",
+      "item_name": "Home Decor - A Item 2",
+      "demand_mean": 147058.0,
+      "demand_std": 22059.0,
+      "unit_cost": 86.26,
+      "margin_pct": 40.5,
+      "pog_capacity": 37476.0
+    },
+    {
+      "cluster_id": "HO_B_003",
+      "segment": "B",
+      "item_name": "Home Decor - B Item 3",
+      "demand_mean": 73933.0,
+      "demand_std": 14787.0,
+      "unit_cost": 61.95,
+      "margin_pct": 52.0,
+      "pog_capacity": 33352.0
+    },
+    {
+      "cluster_id": "HO_B_004",
+      "segment": "B",
+      "item_name": "Home Decor - B Item 4",
+      "demand_mean": 79516.0,
+      "demand_std": 15903.0,
+      "unit_cost": 71.68,
+      "margin_pct": 54.3,
+      "pog_capacity": 37829.0
+    },
+    {
+      "cluster_id": "HO_C_005",
+      "segment": "C",
+      "item_name": "Home Decor - C Item 5",
+      "demand_mean": 30316.0,
+      "demand_std": 9095.0,
+      "unit_cost": 32.98,
+      "margin_pct": 57.6,
+      "pog_capacity": 22459.0
+    },
+    {
+      "cluster_id": "HO_C_006",
+      "segment": "C",
+      "item_name": "Home Decor - C Item 6",
+      "demand_mean": 28697.0,
+      "demand_std": 8609.0,
+      "unit_cost": 37.43,
+      "margin_pct": 61.2,
+      "pog_capacity": 17120.0
+    },
+    {
+      "cluster_id": "HO_R_007",
+      "segment": "R",
+      "item_name": "Home Decor - R Item 7",
+      "demand_mean": 34072.0,
+      "demand_std": 4089.0,
+      "unit_cost": 47.2,
+      "margin_pct": 47.8,
+      "pog_capacity": 21487.0
+    },
+    {
+      "cluster_id": "HO_R_008",
+      "segment": "R",
+      "item_name": "Home Decor - R Item 8",
+      "demand_mean": 43245.0,
+      "demand_std": 5189.0,
+      "unit_cost": 88.94,
+      "margin_pct": 40.5,
+      "pog_capacity": 11162.0
+    }
+  ],
+  "total_demand_value": 38187582.0,
+  "total_budget_needed": 34914572.0
+}

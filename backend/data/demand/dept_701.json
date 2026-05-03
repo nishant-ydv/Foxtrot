@@ -1,0 +1,94 @@
+{
+  "department_id": 701,
+  "department_name": "Car Care",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 40.0,
+    "inseason_pct": 50.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "CA_A_001",
+      "segment": "A",
+      "item_name": "Car Care - A Item 1",
+      "demand_mean": 137290.0,
+      "demand_std": 20593.0,
+      "unit_cost": 92.95,
+      "margin_pct": 46.4,
+      "pog_capacity": 30788.0
+    },
+    {
+      "cluster_id": "CA_A_002",
+      "segment": "A",
+      "item_name": "Car Care - A Item 2",
+      "demand_mean": 145036.0,
+      "demand_std": 21755.0,
+      "unit_cost": 108.06,
+      "margin_pct": 42.7,
+      "pog_capacity": 35412.0
+    },
+    {
+      "cluster_id": "CA_B_003",
+      "segment": "B",
+      "item_name": "Car Care - B Item 3",
+      "demand_mean": 68108.0,
+      "demand_std": 13622.0,
+      "unit_cost": 51.63,
+      "margin_pct": 45.1,
+      "pog_capacity": 20122.0
+    },
+    {
+      "cluster_id": "CA_B_004",
+      "segment": "B",
+      "item_name": "Car Care - B Item 4",
+      "demand_mean": 74795.0,
+      "demand_std": 14959.0,
+      "unit_cost": 69.64,
+      "margin_pct": 46.0,
+      "pog_capacity": 22837.0
+    },
+    {
+      "cluster_id": "CA_C_005",
+      "segment": "C",
+      "item_name": "Car Care - C Item 5",
+      "demand_mean": 30829.0,
+      "demand_std": 9249.0,
+      "unit_cost": 15.77,
+      "margin_pct": 61.2,
+      "pog_capacity": 13227.0
+    },
+    {
+      "cluster_id": "CA_C_006",
+      "segment": "C",
+      "item_name": "Car Care - C Item 6",
+      "demand_mean": 25496.0,
+      "demand_std": 7649.0,
+      "unit_cost": 23.52,
+      "margin_pct": 55.6,
+      "pog_capacity": 20824.0
+    },
+    {
+      "cluster_id": "CA_R_007",
+      "segment": "R",
+      "item_name": "Car Care - R Item 7",
+      "demand_mean": 52189.0,
+      "demand_std": 6263.0,
+      "unit_cost": 82.44,
+      "margin_pct": 36.7,
+      "pog_capacity": 10789.0
+    },
+    {
+      "cluster_id": "CA_R_008",
+      "segment": "R",
+      "item_name": "Car Care - R Item 8",
+      "demand_mean": 30509.0,
+      "demand_std": 3661.0,
+      "unit_cost": 87.96,
+      "margin_pct": 48.5,
+      "pog_capacity": 14082.0
+    }
+  ],
+  "total_demand_value": 45230930.0,
+  "total_budget_needed": 48160785.0
+}

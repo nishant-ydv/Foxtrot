@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+backend/venv/
+frontend/venv/
+*.egg-info/
+dist/
+build/
+.streamlit/secrets.toml
+.claude/settings.local.json
+*.output

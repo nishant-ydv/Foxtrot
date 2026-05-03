@@ -1,0 +1,94 @@
+{
+  "department_id": 305,
+  "department_name": "Audio & Headphones",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "AU_A_001",
+      "segment": "A",
+      "item_name": "Audio & Headphones - A Item 1",
+      "demand_mean": 127060.0,
+      "demand_std": 19059.0,
+      "unit_cost": 68.87,
+      "margin_pct": 40.4,
+      "pog_capacity": 52688.0
+    },
+    {
+      "cluster_id": "AU_A_002",
+      "segment": "A",
+      "item_name": "Audio & Headphones - A Item 2",
+      "demand_mean": 112935.0,
+      "demand_std": 16940.0,
+      "unit_cost": 95.61,
+      "margin_pct": 49.2,
+      "pog_capacity": 35445.0
+    },
+    {
+      "cluster_id": "AU_B_003",
+      "segment": "B",
+      "item_name": "Audio & Headphones - B Item 3",
+      "demand_mean": 63413.0,
+      "demand_std": 12683.0,
+      "unit_cost": 74.43,
+      "margin_pct": 47.4,
+      "pog_capacity": 21825.0
+    },
+    {
+      "cluster_id": "AU_B_004",
+      "segment": "B",
+      "item_name": "Audio & Headphones - B Item 4",
+      "demand_mean": 53918.0,
+      "demand_std": 10784.0,
+      "unit_cost": 53.33,
+      "margin_pct": 50.1,
+      "pog_capacity": 37155.0
+    },
+    {
+      "cluster_id": "AU_C_005",
+      "segment": "C",
+      "item_name": "Audio & Headphones - C Item 5",
+      "demand_mean": 23245.0,
+      "demand_std": 6974.0,
+      "unit_cost": 32.34,
+      "margin_pct": 54.3,
+      "pog_capacity": 24178.0
+    },
+    {
+      "cluster_id": "AU_C_006",
+      "segment": "C",
+      "item_name": "Audio & Headphones - C Item 6",
+      "demand_mean": 35339.0,
+      "demand_std": 10602.0,
+      "unit_cost": 28.75,
+      "margin_pct": 56.8,
+      "pog_capacity": 14718.0
+    },
+    {
+      "cluster_id": "AU_R_007",
+      "segment": "R",
+      "item_name": "Audio & Headphones - R Item 7",
+      "demand_mean": 36315.0,
+      "demand_std": 4358.0,
+      "unit_cost": 126.72,
+      "margin_pct": 43.1,
+      "pog_capacity": 17719.0
+    },
+    {
+      "cluster_id": "AU_R_008",
+      "segment": "R",
+      "item_name": "Audio & Headphones - R Item 8",
+      "demand_mean": 59584.0,
+      "demand_std": 7150.0,
+      "unit_cost": 92.34,
+      "margin_pct": 45.9,
+      "pog_capacity": 16199.0
+    }
+  ],
+  "total_demand_value": 39014839.0,
+  "total_budget_needed": 34139272.0
+}

@@ -1,0 +1,94 @@
+{
+  "department_id": 109,
+  "department_name": "Underwear & Intimates",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 55.0,
+    "inseason_pct": 35.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "UN_A_001",
+      "segment": "A",
+      "item_name": "Underwear & Intimates - A Item 1",
+      "demand_mean": 138362.0,
+      "demand_std": 20754.0,
+      "unit_cost": 99.25,
+      "margin_pct": 46.1,
+      "pog_capacity": 59617.0
+    },
+    {
+      "cluster_id": "UN_A_002",
+      "segment": "A",
+      "item_name": "Underwear & Intimates - A Item 2",
+      "demand_mean": 125778.0,
+      "demand_std": 18867.0,
+      "unit_cost": 50.55,
+      "margin_pct": 48.2,
+      "pog_capacity": 38981.0
+    },
+    {
+      "cluster_id": "UN_B_003",
+      "segment": "B",
+      "item_name": "Underwear & Intimates - B Item 3",
+      "demand_mean": 66536.0,
+      "demand_std": 13307.0,
+      "unit_cost": 95.73,
+      "margin_pct": 42.0,
+      "pog_capacity": 22309.0
+    },
+    {
+      "cluster_id": "UN_B_004",
+      "segment": "B",
+      "item_name": "Underwear & Intimates - B Item 4",
+      "demand_mean": 44281.0,
+      "demand_std": 8856.0,
+      "unit_cost": 68.73,
+      "margin_pct": 44.1,
+      "pog_capacity": 32097.0
+    },
+    {
+      "cluster_id": "UN_C_005",
+      "segment": "C",
+      "item_name": "Underwear & Intimates - C Item 5",
+      "demand_mean": 32940.0,
+      "demand_std": 9882.0,
+      "unit_cost": 20.09,
+      "margin_pct": 59.5,
+      "pog_capacity": 13960.0
+    },
+    {
+      "cluster_id": "UN_C_006",
+      "segment": "C",
+      "item_name": "Underwear & Intimates - C Item 6",
+      "demand_mean": 27213.0,
+      "demand_std": 8164.0,
+      "unit_cost": 37.63,
+      "margin_pct": 62.7,
+      "pog_capacity": 11384.0
+    },
+    {
+      "cluster_id": "UN_R_007",
+      "segment": "R",
+      "item_name": "Underwear & Intimates - R Item 7",
+      "demand_mean": 39825.0,
+      "demand_std": 4779.0,
+      "unit_cost": 50.43,
+      "margin_pct": 35.1,
+      "pog_capacity": 21567.0
+    },
+    {
+      "cluster_id": "UN_R_008",
+      "segment": "R",
+      "item_name": "Underwear & Intimates - R Item 8",
+      "demand_mean": 47299.0,
+      "demand_std": 5676.0,
+      "unit_cost": 48.82,
+      "margin_pct": 49.8,
+      "pog_capacity": 18275.0
+    }
+  ],
+  "total_demand_value": 35505702.0,
+  "total_budget_needed": 34478691.0
+}

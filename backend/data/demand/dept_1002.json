@@ -1,0 +1,94 @@
+{
+  "department_id": 1002,
+  "department_name": "Media & Electronics",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 20.0,
+    "inseason_pct": 70.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "ME_A_001",
+      "segment": "A",
+      "item_name": "Media & Electronics - A Item 1",
+      "demand_mean": 137182.0,
+      "demand_std": 20577.0,
+      "unit_cost": 106.09,
+      "margin_pct": 41.4,
+      "pog_capacity": 37500.0
+    },
+    {
+      "cluster_id": "ME_A_002",
+      "segment": "A",
+      "item_name": "Media & Electronics - A Item 2",
+      "demand_mean": 124883.0,
+      "demand_std": 18732.0,
+      "unit_cost": 111.19,
+      "margin_pct": 45.5,
+      "pog_capacity": 33078.0
+    },
+    {
+      "cluster_id": "ME_B_003",
+      "segment": "B",
+      "item_name": "Media & Electronics - B Item 3",
+      "demand_mean": 73836.0,
+      "demand_std": 14767.0,
+      "unit_cost": 89.58,
+      "margin_pct": 44.3,
+      "pog_capacity": 35262.0
+    },
+    {
+      "cluster_id": "ME_B_004",
+      "segment": "B",
+      "item_name": "Media & Electronics - B Item 4",
+      "demand_mean": 50912.0,
+      "demand_std": 10182.0,
+      "unit_cost": 93.37,
+      "margin_pct": 42.2,
+      "pog_capacity": 28749.0
+    },
+    {
+      "cluster_id": "ME_C_005",
+      "segment": "C",
+      "item_name": "Media & Electronics - C Item 5",
+      "demand_mean": 38660.0,
+      "demand_std": 11598.0,
+      "unit_cost": 20.55,
+      "margin_pct": 56.8,
+      "pog_capacity": 15244.0
+    },
+    {
+      "cluster_id": "ME_C_006",
+      "segment": "C",
+      "item_name": "Media & Electronics - C Item 6",
+      "demand_mean": 15667.0,
+      "demand_std": 4700.0,
+      "unit_cost": 16.33,
+      "margin_pct": 57.5,
+      "pog_capacity": 13537.0
+    },
+    {
+      "cluster_id": "ME_R_007",
+      "segment": "R",
+      "item_name": "Media & Electronics - R Item 7",
+      "demand_mean": 59808.0,
+      "demand_std": 7177.0,
+      "unit_cost": 61.24,
+      "margin_pct": 35.6,
+      "pog_capacity": 23962.0
+    },
+    {
+      "cluster_id": "ME_R_008",
+      "segment": "R",
+      "item_name": "Media & Electronics - R Item 8",
+      "demand_mean": 54371.0,
+      "demand_std": 6525.0,
+      "unit_cost": 91.5,
+      "margin_pct": 50.8,
+      "pog_capacity": 12064.0
+    }
+  ],
+  "total_demand_value": 49494685.0,
+  "total_budget_needed": 45275351.0
+}

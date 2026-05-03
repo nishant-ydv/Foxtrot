@@ -1,0 +1,94 @@
+{
+  "department_id": 504,
+  "department_name": "Vitamins & Supplements",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "VI_A_001",
+      "segment": "A",
+      "item_name": "Vitamins & Supplements - A Item 1",
+      "demand_mean": 109042.0,
+      "demand_std": 16356.0,
+      "unit_cost": 56.93,
+      "margin_pct": 44.9,
+      "pog_capacity": 42243.0
+    },
+    {
+      "cluster_id": "VI_A_002",
+      "segment": "A",
+      "item_name": "Vitamins & Supplements - A Item 2",
+      "demand_mean": 146607.0,
+      "demand_std": 21991.0,
+      "unit_cost": 52.29,
+      "margin_pct": 43.7,
+      "pog_capacity": 43301.0
+    },
+    {
+      "cluster_id": "VI_B_003",
+      "segment": "B",
+      "item_name": "Vitamins & Supplements - B Item 3",
+      "demand_mean": 78022.0,
+      "demand_std": 15604.0,
+      "unit_cost": 89.88,
+      "margin_pct": 41.5,
+      "pog_capacity": 33714.0
+    },
+    {
+      "cluster_id": "VI_B_004",
+      "segment": "B",
+      "item_name": "Vitamins & Supplements - B Item 4",
+      "demand_mean": 61779.0,
+      "demand_std": 12356.0,
+      "unit_cost": 98.45,
+      "margin_pct": 45.4,
+      "pog_capacity": 27963.0
+    },
+    {
+      "cluster_id": "VI_C_005",
+      "segment": "C",
+      "item_name": "Vitamins & Supplements - C Item 5",
+      "demand_mean": 19745.0,
+      "demand_std": 5924.0,
+      "unit_cost": 18.05,
+      "margin_pct": 62.7,
+      "pog_capacity": 16821.0
+    },
+    {
+      "cluster_id": "VI_C_006",
+      "segment": "C",
+      "item_name": "Vitamins & Supplements - C Item 6",
+      "demand_mean": 31569.0,
+      "demand_std": 9471.0,
+      "unit_cost": 31.04,
+      "margin_pct": 59.0,
+      "pog_capacity": 10320.0
+    },
+    {
+      "cluster_id": "VI_R_007",
+      "segment": "R",
+      "item_name": "Vitamins & Supplements - R Item 7",
+      "demand_mean": 52538.0,
+      "demand_std": 6305.0,
+      "unit_cost": 46.79,
+      "margin_pct": 37.5,
+      "pog_capacity": 18469.0
+    },
+    {
+      "cluster_id": "VI_R_008",
+      "segment": "R",
+      "item_name": "Vitamins & Supplements - R Item 8",
+      "demand_mean": 27401.0,
+      "demand_std": 3288.0,
+      "unit_cost": 104.17,
+      "margin_pct": 39.1,
+      "pog_capacity": 13239.0
+    }
+  ],
+  "total_demand_value": 33617970.0,
+  "total_budget_needed": 38589334.0
+}

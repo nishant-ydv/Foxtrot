@@ -1,0 +1,94 @@
+{
+  "department_id": 404,
+  "department_name": "Bakery & Deli",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 20.0,
+    "inseason_pct": 70.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "BA_A_001",
+      "segment": "A",
+      "item_name": "Bakery & Deli - A Item 1",
+      "demand_mean": 86891.0,
+      "demand_std": 13034.0,
+      "unit_cost": 94.36,
+      "margin_pct": 48.7,
+      "pog_capacity": 43310.0
+    },
+    {
+      "cluster_id": "BA_A_002",
+      "segment": "A",
+      "item_name": "Bakery & Deli - A Item 2",
+      "demand_mean": 128580.0,
+      "demand_std": 19287.0,
+      "unit_cost": 113.24,
+      "margin_pct": 40.5,
+      "pog_capacity": 53884.0
+    },
+    {
+      "cluster_id": "BA_B_003",
+      "segment": "B",
+      "item_name": "Bakery & Deli - B Item 3",
+      "demand_mean": 51735.0,
+      "demand_std": 10347.0,
+      "unit_cost": 56.24,
+      "margin_pct": 42.2,
+      "pog_capacity": 30623.0
+    },
+    {
+      "cluster_id": "BA_B_004",
+      "segment": "B",
+      "item_name": "Bakery & Deli - B Item 4",
+      "demand_mean": 62637.0,
+      "demand_std": 12527.0,
+      "unit_cost": 85.48,
+      "margin_pct": 42.5,
+      "pog_capacity": 21579.0
+    },
+    {
+      "cluster_id": "BA_C_005",
+      "segment": "C",
+      "item_name": "Bakery & Deli - C Item 5",
+      "demand_mean": 36771.0,
+      "demand_std": 11031.0,
+      "unit_cost": 30.49,
+      "margin_pct": 53.6,
+      "pog_capacity": 23692.0
+    },
+    {
+      "cluster_id": "BA_C_006",
+      "segment": "C",
+      "item_name": "Bakery & Deli - C Item 6",
+      "demand_mean": 18578.0,
+      "demand_std": 5573.0,
+      "unit_cost": 26.53,
+      "margin_pct": 53.8,
+      "pog_capacity": 13830.0
+    },
+    {
+      "cluster_id": "BA_R_007",
+      "segment": "R",
+      "item_name": "Bakery & Deli - R Item 7",
+      "demand_mean": 25329.0,
+      "demand_std": 3039.0,
+      "unit_cost": 108.51,
+      "margin_pct": 53.0,
+      "pog_capacity": 20164.0
+    },
+    {
+      "cluster_id": "BA_R_008",
+      "segment": "R",
+      "item_name": "Bakery & Deli - R Item 8",
+      "demand_mean": 30529.0,
+      "demand_std": 3663.0,
+      "unit_cost": 68.59,
+      "margin_pct": 41.9,
+      "pog_capacity": 18814.0
+    }
+  ],
+  "total_demand_value": 37479636.0,
+  "total_budget_needed": 39562585.0
+}

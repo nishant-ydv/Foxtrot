@@ -1,0 +1,82 @@
+[
+  {
+    "id": "V001",
+    "name": "Global Footwear Co.",
+    "lead_time_weeks": 8,
+    "moq": 500,
+    "cost_per_unit": 45.00,
+    "category_ids": [1]
+  },
+  {
+    "id": "V002",
+    "name": "Fast Fashion Suppliers",
+    "lead_time_weeks": 4,
+    "moq": 1000,
+    "cost_per_unit": 25.00,
+    "category_ids": [1]
+  },
+  {
+    "id": "V003",
+    "name": "Home Goods Manufacturing",
+    "lead_time_weeks": 6,
+    "moq": 300,
+    "cost_per_unit": 35.00,
+    "category_ids": [2]
+  },
+  {
+    "id": "V004",
+    "name": "Tech Distributors Inc.",
+    "lead_time_weeks": 3,
+    "moq": 200,
+    "cost_per_unit": 150.00,
+    "category_ids": [3]
+  },
+  {
+    "id": "V005",
+    "name": "Fresh Farms Direct",
+    "lead_time_weeks": 1,
+    "moq": 2000,
+    "cost_per_unit": 5.00,
+    "category_ids": [4]
+  },
+  {
+    "id": "V006",
+    "name": "Beauty Brands LLC",
+    "lead_time_weeks": 5,
+    "moq": 400,
+    "cost_per_unit": 18.00,
+    "category_ids": [5]
+  },
+  {
+    "id": "V007",
+    "name": "Sports Gear Ltd.",
+    "lead_time_weeks": 7,
+    "moq": 350,
+    "cost_per_unit": 55.00,
+    "category_ids": [6]
+  },
+  {
+    "id": "V008",
+    "name": "Auto Parts Warehouse",
+    "lead_time_weeks": 10,
+    "moq": 100,
+    "cost_per_unit": 75.00,
+    "category_ids": [7]
+  },
+  {
+    "id": "V009",
+    "name": "Toy Manufacturers Co.",
+    "lead_time_weeks": 12,
+    "moq": 600,
+    "cost_per_unit": 15.00,
+    "category_ids": [8]
+  },
+  {
+    "id": "V010",
+    "name": "Pet Products Direct",
+    "lead_time_weeks": 4,
+    "moq": 800,
+    "cost_per_unit": 12.00,
+    "category_ids": [9]
+  }
+]

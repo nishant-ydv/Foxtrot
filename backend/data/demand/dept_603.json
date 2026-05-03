@@ -1,0 +1,94 @@
+{
+  "department_id": 603,
+  "department_name": "Athletic Apparel",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 50.0,
+    "inseason_pct": 40.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "AT_A_001",
+      "segment": "A",
+      "item_name": "Athletic Apparel - A Item 1",
+      "demand_mean": 90685.0,
+      "demand_std": 13603.0,
+      "unit_cost": 114.61,
+      "margin_pct": 40.7,
+      "pog_capacity": 54953.0
+    },
+    {
+      "cluster_id": "AT_A_002",
+      "segment": "A",
+      "item_name": "Athletic Apparel - A Item 2",
+      "demand_mean": 86526.0,
+      "demand_std": 12979.0,
+      "unit_cost": 56.76,
+      "margin_pct": 47.4,
+      "pog_capacity": 54353.0
+    },
+    {
+      "cluster_id": "AT_B_003",
+      "segment": "B",
+      "item_name": "Athletic Apparel - B Item 3",
+      "demand_mean": 62255.0,
+      "demand_std": 12451.0,
+      "unit_cost": 71.05,
+      "margin_pct": 48.4,
+      "pog_capacity": 26593.0
+    },
+    {
+      "cluster_id": "AT_B_004",
+      "segment": "B",
+      "item_name": "Athletic Apparel - B Item 4",
+      "demand_mean": 44889.0,
+      "demand_std": 8978.0,
+      "unit_cost": 54.75,
+      "margin_pct": 50.0,
+      "pog_capacity": 35006.0
+    },
+    {
+      "cluster_id": "AT_C_005",
+      "segment": "C",
+      "item_name": "Athletic Apparel - C Item 5",
+      "demand_mean": 36702.0,
+      "demand_std": 11011.0,
+      "unit_cost": 33.03,
+      "margin_pct": 64.5,
+      "pog_capacity": 19006.0
+    },
+    {
+      "cluster_id": "AT_C_006",
+      "segment": "C",
+      "item_name": "Athletic Apparel - C Item 6",
+      "demand_mean": 23791.0,
+      "demand_std": 7137.0,
+      "unit_cost": 29.45,
+      "margin_pct": 53.2,
+      "pog_capacity": 19851.0
+    },
+    {
+      "cluster_id": "AT_R_007",
+      "segment": "R",
+      "item_name": "Athletic Apparel - R Item 7",
+      "demand_mean": 32849.0,
+      "demand_std": 3942.0,
+      "unit_cost": 31.9,
+      "margin_pct": 51.9,
+      "pog_capacity": 15513.0
+    },
+    {
+      "cluster_id": "AT_R_008",
+      "segment": "R",
+      "item_name": "Athletic Apparel - R Item 8",
+      "demand_mean": 51691.0,
+      "demand_std": 6203.0,
+      "unit_cost": 83.15,
+      "margin_pct": 51.1,
+      "pog_capacity": 22677.0
+    }
+  ],
+  "total_demand_value": 29444522.0,
+  "total_budget_needed": 35033642.0
+}

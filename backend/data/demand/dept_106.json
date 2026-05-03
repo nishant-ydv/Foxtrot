@@ -1,0 +1,94 @@
+{
+  "department_id": 106,
+  "department_name": "Jeans & Denim",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 55.0,
+    "inseason_pct": 35.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "JE_A_001",
+      "segment": "A",
+      "item_name": "Jeans & Denim - A Item 1",
+      "demand_mean": 84960.0,
+      "demand_std": 12744.0,
+      "unit_cost": 66.66,
+      "margin_pct": 46.7,
+      "pog_capacity": 36427.0
+    },
+    {
+      "cluster_id": "JE_A_002",
+      "segment": "A",
+      "item_name": "Jeans & Denim - A Item 2",
+      "demand_mean": 89262.0,
+      "demand_std": 13389.0,
+      "unit_cost": 115.49,
+      "margin_pct": 45.7,
+      "pog_capacity": 44180.0
+    },
+    {
+      "cluster_id": "JE_B_003",
+      "segment": "B",
+      "item_name": "Jeans & Denim - B Item 3",
+      "demand_mean": 71385.0,
+      "demand_std": 14277.0,
+      "unit_cost": 86.52,
+      "margin_pct": 42.9,
+      "pog_capacity": 21939.0
+    },
+    {
+      "cluster_id": "JE_B_004",
+      "segment": "B",
+      "item_name": "Jeans & Denim - B Item 4",
+      "demand_mean": 57242.0,
+      "demand_std": 11448.0,
+      "unit_cost": 59.65,
+      "margin_pct": 47.0,
+      "pog_capacity": 34582.0
+    },
+    {
+      "cluster_id": "JE_C_005",
+      "segment": "C",
+      "item_name": "Jeans & Denim - C Item 5",
+      "demand_mean": 31834.0,
+      "demand_std": 9550.0,
+      "unit_cost": 39.6,
+      "margin_pct": 51.5,
+      "pog_capacity": 16039.0
+    },
+    {
+      "cluster_id": "JE_C_006",
+      "segment": "C",
+      "item_name": "Jeans & Denim - C Item 6",
+      "demand_mean": 23483.0,
+      "demand_std": 7045.0,
+      "unit_cost": 36.54,
+      "margin_pct": 53.7,
+      "pog_capacity": 12853.0
+    },
+    {
+      "cluster_id": "JE_R_007",
+      "segment": "R",
+      "item_name": "Jeans & Denim - R Item 7",
+      "demand_mean": 40701.0,
+      "demand_std": 4884.0,
+      "unit_cost": 66.41,
+      "margin_pct": 40.6,
+      "pog_capacity": 13747.0
+    },
+    {
+      "cluster_id": "JE_R_008",
+      "segment": "R",
+      "item_name": "Jeans & Denim - R Item 8",
+      "demand_mean": 57314.0,
+      "demand_std": 6878.0,
+      "unit_cost": 68.74,
+      "margin_pct": 52.2,
+      "pog_capacity": 18255.0
+    }
+  ],
+  "total_demand_value": 34324779.0,
+  "total_budget_needed": 28154396.0
+}

@@ -1,0 +1,94 @@
+{
+  "department_id": 301,
+  "department_name": "Laptops & Computers",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "LA_A_001",
+      "segment": "A",
+      "item_name": "Laptops & Computers - A Item 1",
+      "demand_mean": 103824.0,
+      "demand_std": 15574.0,
+      "unit_cost": 111.62,
+      "margin_pct": 47.0,
+      "pog_capacity": 38288.0
+    },
+    {
+      "cluster_id": "LA_A_002",
+      "segment": "A",
+      "item_name": "Laptops & Computers - A Item 2",
+      "demand_mean": 80711.0,
+      "demand_std": 12107.0,
+      "unit_cost": 116.36,
+      "margin_pct": 40.9,
+      "pog_capacity": 51602.0
+    },
+    {
+      "cluster_id": "LA_B_003",
+      "segment": "B",
+      "item_name": "Laptops & Computers - B Item 3",
+      "demand_mean": 59543.0,
+      "demand_std": 11909.0,
+      "unit_cost": 83.07,
+      "margin_pct": 50.4,
+      "pog_capacity": 32918.0
+    },
+    {
+      "cluster_id": "LA_B_004",
+      "segment": "B",
+      "item_name": "Laptops & Computers - B Item 4",
+      "demand_mean": 59633.0,
+      "demand_std": 11927.0,
+      "unit_cost": 85.51,
+      "margin_pct": 41.4,
+      "pog_capacity": 24432.0
+    },
+    {
+      "cluster_id": "LA_C_005",
+      "segment": "C",
+      "item_name": "Laptops & Computers - C Item 5",
+      "demand_mean": 32295.0,
+      "demand_std": 9688.0,
+      "unit_cost": 22.66,
+      "margin_pct": 58.7,
+      "pog_capacity": 17099.0
+    },
+    {
+      "cluster_id": "LA_C_006",
+      "segment": "C",
+      "item_name": "Laptops & Computers - C Item 6",
+      "demand_mean": 28273.0,
+      "demand_std": 8482.0,
+      "unit_cost": 25.64,
+      "margin_pct": 61.2,
+      "pog_capacity": 14962.0
+    },
+    {
+      "cluster_id": "LA_R_007",
+      "segment": "R",
+      "item_name": "Laptops & Computers - R Item 7",
+      "demand_mean": 49600.0,
+      "demand_std": 5952.0,
+      "unit_cost": 49.8,
+      "margin_pct": 40.0,
+      "pog_capacity": 11810.0
+    },
+    {
+      "cluster_id": "LA_R_008",
+      "segment": "R",
+      "item_name": "Laptops & Computers - R Item 8",
+      "demand_mean": 31740.0,
+      "demand_std": 3809.0,
+      "unit_cost": 33.15,
+      "margin_pct": 45.7,
+      "pog_capacity": 21433.0
+    }
+  ],
+  "total_demand_value": 36004990.0,
+  "total_budget_needed": 31470519.0
+}

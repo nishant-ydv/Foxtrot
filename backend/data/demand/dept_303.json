@@ -1,0 +1,94 @@
+{
+  "department_id": 303,
+  "department_name": "TV & Home Theater",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "TV_A_001",
+      "segment": "A",
+      "item_name": "TV & Home Theater - A Item 1",
+      "demand_mean": 119399.0,
+      "demand_std": 17910.0,
+      "unit_cost": 71.27,
+      "margin_pct": 49.9,
+      "pog_capacity": 33554.0
+    },
+    {
+      "cluster_id": "TV_A_002",
+      "segment": "A",
+      "item_name": "TV & Home Theater - A Item 2",
+      "demand_mean": 133511.0,
+      "demand_std": 20027.0,
+      "unit_cost": 92.44,
+      "margin_pct": 47.9,
+      "pog_capacity": 36771.0
+    },
+    {
+      "cluster_id": "TV_B_003",
+      "segment": "B",
+      "item_name": "TV & Home Theater - B Item 3",
+      "demand_mean": 60903.0,
+      "demand_std": 12181.0,
+      "unit_cost": 61.54,
+      "margin_pct": 46.6,
+      "pog_capacity": 37203.0
+    },
+    {
+      "cluster_id": "TV_B_004",
+      "segment": "B",
+      "item_name": "TV & Home Theater - B Item 4",
+      "demand_mean": 79601.0,
+      "demand_std": 15920.0,
+      "unit_cost": 51.38,
+      "margin_pct": 49.3,
+      "pog_capacity": 32193.0
+    },
+    {
+      "cluster_id": "TV_C_005",
+      "segment": "C",
+      "item_name": "TV & Home Theater - C Item 5",
+      "demand_mean": 33502.0,
+      "demand_std": 10051.0,
+      "unit_cost": 38.69,
+      "margin_pct": 53.1,
+      "pog_capacity": 13165.0
+    },
+    {
+      "cluster_id": "TV_C_006",
+      "segment": "C",
+      "item_name": "TV & Home Theater - C Item 6",
+      "demand_mean": 31511.0,
+      "demand_std": 9453.0,
+      "unit_cost": 18.93,
+      "margin_pct": 52.6,
+      "pog_capacity": 11126.0
+    },
+    {
+      "cluster_id": "TV_R_007",
+      "segment": "R",
+      "item_name": "TV & Home Theater - R Item 7",
+      "demand_mean": 25094.0,
+      "demand_std": 3011.0,
+      "unit_cost": 69.56,
+      "margin_pct": 46.9,
+      "pog_capacity": 14369.0
+    },
+    {
+      "cluster_id": "TV_R_008",
+      "segment": "R",
+      "item_name": "TV & Home Theater - R Item 8",
+      "demand_mean": 33102.0,
+      "demand_std": 3972.0,
+      "unit_cost": 97.77,
+      "margin_pct": 49.1,
+      "pog_capacity": 16810.0
+    }
+  ],
+  "total_demand_value": 35562960.0,
+  "total_budget_needed": 38228545.0
+}

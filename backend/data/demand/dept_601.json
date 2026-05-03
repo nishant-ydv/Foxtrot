@@ -1,0 +1,94 @@
+{
+  "department_id": 601,
+  "department_name": "Exercise Equipment",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 50.0,
+    "inseason_pct": 40.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "EX_A_001",
+      "segment": "A",
+      "item_name": "Exercise Equipment - A Item 1",
+      "demand_mean": 102999.0,
+      "demand_std": 15450.0,
+      "unit_cost": 60.33,
+      "margin_pct": 49.0,
+      "pog_capacity": 30085.0
+    },
+    {
+      "cluster_id": "EX_A_002",
+      "segment": "A",
+      "item_name": "Exercise Equipment - A Item 2",
+      "demand_mean": 140088.0,
+      "demand_std": 21013.0,
+      "unit_cost": 60.13,
+      "margin_pct": 41.3,
+      "pog_capacity": 37520.0
+    },
+    {
+      "cluster_id": "EX_B_003",
+      "segment": "B",
+      "item_name": "Exercise Equipment - B Item 3",
+      "demand_mean": 46980.0,
+      "demand_std": 9396.0,
+      "unit_cost": 76.27,
+      "margin_pct": 40.4,
+      "pog_capacity": 20297.0
+    },
+    {
+      "cluster_id": "EX_B_004",
+      "segment": "B",
+      "item_name": "Exercise Equipment - B Item 4",
+      "demand_mean": 71599.0,
+      "demand_std": 14320.0,
+      "unit_cost": 46.66,
+      "margin_pct": 44.9,
+      "pog_capacity": 23485.0
+    },
+    {
+      "cluster_id": "EX_C_005",
+      "segment": "C",
+      "item_name": "Exercise Equipment - C Item 5",
+      "demand_mean": 16310.0,
+      "demand_std": 4893.0,
+      "unit_cost": 33.54,
+      "margin_pct": 57.9,
+      "pog_capacity": 21185.0
+    },
+    {
+      "cluster_id": "EX_C_006",
+      "segment": "C",
+      "item_name": "Exercise Equipment - C Item 6",
+      "demand_mean": 26906.0,
+      "demand_std": 8072.0,
+      "unit_cost": 34.45,
+      "margin_pct": 57.7,
+      "pog_capacity": 11636.0
+    },
+    {
+      "cluster_id": "EX_R_007",
+      "segment": "R",
+      "item_name": "Exercise Equipment - R Item 7",
+      "demand_mean": 42634.0,
+      "demand_std": 5116.0,
+      "unit_cost": 124.0,
+      "margin_pct": 35.9,
+      "pog_capacity": 21748.0
+    },
+    {
+      "cluster_id": "EX_R_008",
+      "segment": "R",
+      "item_name": "Exercise Equipment - R Item 8",
+      "demand_mean": 55344.0,
+      "demand_std": 6641.0,
+      "unit_cost": 77.36,
+      "margin_pct": 44.2,
+      "pog_capacity": 24460.0
+    }
+  ],
+  "total_demand_value": 32602812.0,
+  "total_budget_needed": 26875482.0
+}

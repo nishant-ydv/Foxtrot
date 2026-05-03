@@ -1,0 +1,94 @@
+{
+  "department_id": 501,
+  "department_name": "Skincare",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 30.0,
+    "inseason_pct": 60.0,
+    "markdown_pct": 10.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "SK_A_001",
+      "segment": "A",
+      "item_name": "Skincare - A Item 1",
+      "demand_mean": 109702.0,
+      "demand_std": 16455.0,
+      "unit_cost": 67.51,
+      "margin_pct": 48.5,
+      "pog_capacity": 35977.0
+    },
+    {
+      "cluster_id": "SK_A_002",
+      "segment": "A",
+      "item_name": "Skincare - A Item 2",
+      "demand_mean": 106929.0,
+      "demand_std": 16039.0,
+      "unit_cost": 83.82,
+      "margin_pct": 42.4,
+      "pog_capacity": 47158.0
+    },
+    {
+      "cluster_id": "SK_B_003",
+      "segment": "B",
+      "item_name": "Skincare - B Item 3",
+      "demand_mean": 62992.0,
+      "demand_std": 12598.0,
+      "unit_cost": 99.49,
+      "margin_pct": 44.4,
+      "pog_capacity": 39559.0
+    },
+    {
+      "cluster_id": "SK_B_004",
+      "segment": "B",
+      "item_name": "Skincare - B Item 4",
+      "demand_mean": 66329.0,
+      "demand_std": 13266.0,
+      "unit_cost": 49.21,
+      "margin_pct": 48.5,
+      "pog_capacity": 33716.0
+    },
+    {
+      "cluster_id": "SK_C_005",
+      "segment": "C",
+      "item_name": "Skincare - C Item 5",
+      "demand_mean": 33617.0,
+      "demand_std": 10085.0,
+      "unit_cost": 16.23,
+      "margin_pct": 59.1,
+      "pog_capacity": 17451.0
+    },
+    {
+      "cluster_id": "SK_C_006",
+      "segment": "C",
+      "item_name": "Skincare - C Item 6",
+      "demand_mean": 37604.0,
+      "demand_std": 11281.0,
+      "unit_cost": 22.15,
+      "margin_pct": 62.0,
+      "pog_capacity": 19106.0
+    },
+    {
+      "cluster_id": "SK_R_007",
+      "segment": "R",
+      "item_name": "Skincare - R Item 7",
+      "demand_mean": 37331.0,
+      "demand_std": 4480.0,
+      "unit_cost": 90.03,
+      "margin_pct": 47.4,
+      "pog_capacity": 20166.0
+    },
+    {
+      "cluster_id": "SK_R_008",
+      "segment": "R",
+      "item_name": "Skincare - R Item 8",
+      "demand_mean": 50232.0,
+      "demand_std": 6028.0,
+      "unit_cost": 92.51,
+      "margin_pct": 51.8,
+      "pog_capacity": 19424.0
+    }
+  ],
+  "total_demand_value": 35286613.0,
+  "total_budget_needed": 40980513.0
+}

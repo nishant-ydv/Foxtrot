@@ -1,0 +1,94 @@
+{
+  "department_id": 801,
+  "department_name": "Toys",
+  "season": {
+    "name": "Fall/Holiday",
+    "preseason_pct": 45.0,
+    "inseason_pct": 40.0,
+    "markdown_pct": 15.0
+  },
+  "sku_clusters": [
+    {
+      "cluster_id": "TO_A_001",
+      "segment": "A",
+      "item_name": "Toys - A Item 1",
+      "demand_mean": 120303.0,
+      "demand_std": 18045.0,
+      "unit_cost": 90.14,
+      "margin_pct": 47.1,
+      "pog_capacity": 42531.0
+    },
+    {
+      "cluster_id": "TO_A_002",
+      "segment": "A",
+      "item_name": "Toys - A Item 2",
+      "demand_mean": 88062.0,
+      "demand_std": 13209.0,
+      "unit_cost": 51.46,
+      "margin_pct": 43.2,
+      "pog_capacity": 54040.0
+    },
+    {
+      "cluster_id": "TO_B_003",
+      "segment": "B",
+      "item_name": "Toys - B Item 3",
+      "demand_mean": 64725.0,
+      "demand_std": 12945.0,
+      "unit_cost": 88.24,
+      "margin_pct": 53.8,
+      "pog_capacity": 21763.0
+    },
+    {
+      "cluster_id": "TO_B_004",
+      "segment": "B",
+      "item_name": "Toys - B Item 4",
+      "demand_mean": 73779.0,
+      "demand_std": 14756.0,
+      "unit_cost": 47.03,
+      "margin_pct": 48.8,
+      "pog_capacity": 30479.0
+    },
+    {
+      "cluster_id": "TO_C_005",
+      "segment": "C",
+      "item_name": "Toys - C Item 5",
+      "demand_mean": 24894.0,
+      "demand_std": 7468.0,
+      "unit_cost": 22.76,
+      "margin_pct": 55.1,
+      "pog_capacity": 14996.0
+    },
+    {
+      "cluster_id": "TO_C_006",
+      "segment": "C",
+      "item_name": "Toys - C Item 6",
+      "demand_mean": 19203.0,
+      "demand_std": 5761.0,
+      "unit_cost": 27.76,
+      "margin_pct": 51.7,
+      "pog_capacity": 17649.0
+    },
+    {
+      "cluster_id": "TO_R_007",
+      "segment": "R",
+      "item_name": "Toys - R Item 7",
+      "demand_mean": 56707.0,
+      "demand_std": 6805.0,
+      "unit_cost": 58.43,
+      "margin_pct": 49.5,
+      "pog_capacity": 22284.0
+    },
+    {
+      "cluster_id": "TO_R_008",
+      "segment": "R",
+      "item_name": "Toys - R Item 8",
+      "demand_mean": 53526.0,
+      "demand_std": 6423.0,
+      "unit_cost": 45.99,
+      "margin_pct": 37.9,
+      "pog_capacity": 12959.0
+    }
+  ],
+  "total_demand_value": 31431780.0,
+  "total_budget_needed": 32719212.0
+}
