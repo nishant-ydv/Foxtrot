@@ -9,20 +9,26 @@ Key behavior:
 """
 import json
 import math
+import os
 from typing import Dict, List, Any, Tuple, Optional
 from ortools.sat.python import cp_model
 from ortools.linear_solver import pywraplp
 
+# Base directory for data files (relative to this module)
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def load_department_data(dept_id: int) -> Dict[str, Any]:
     """Load demand forecast and metadata for a department."""
-    with open(f"data/demand/dept_{dept_id}.json") as f:
+    path = os.path.join(_BASE_DIR, "data", "demand", f"dept_{dept_id}.json")
+    with open(path) as f:
         return json.load(f)
 
 
 def load_segments() -> Dict[str, Any]:
     """Load segment definitions."""
-    with open("data/segments.json") as f:
+    path = os.path.join(_BASE_DIR, "data", "segments.json")
+    with open(path) as f:
         return json.load(f)
 
 

@@ -23,6 +23,9 @@ from models import (
 import optimizer as opt
 import llm_layer as llm
 
+# Base directory for data files
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -45,13 +48,13 @@ app.add_middleware(
 
 def _load_categories():
     """Load categories from JSON."""
-    with open("data/categories.json") as f:
+    with open(os.path.join(_BASE_DIR, "data", "categories.json")) as f:
         return json.load(f)
 
 
 def _load_departments():
     """Load departments from JSON."""
-    with open("data/departments.json") as f:
+    with open(os.path.join(_BASE_DIR, "data", "departments.json")) as f:
         return json.load(f)
 
 
