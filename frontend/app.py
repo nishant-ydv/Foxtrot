@@ -23,14 +23,21 @@ if backend_path not in sys.path:
     sys.path.insert(0, backend_path)
 
 try:
+    # Try OR-Tools optimizer first
     from optimizer import optimize_policy
     from llm_layer import parse_scenario, narrate_tradeoff, frame_decision, explain_infeasibility
     STANDALONE = True
 except ImportError:
-    # Fall back to API mode if modules can't be imported
-    import requests
-    STANDALONE = False
-    API_BASE_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+    # Try simple optimizer (no OR-Tools needed)
+    try:
+        from optimizer_simple import optimize_policy
+        from llm_layer import parse_scenario, narrate_tradeoff, frame_decision, explain_infeasibility
+        STANDALONE = True
+    except ImportError:
+        # Fall back to API mode
+        import requests
+        STANDALONE = False
+        API_BASE_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 # Page config
 st.set_page_config(
