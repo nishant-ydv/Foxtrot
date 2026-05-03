@@ -54,7 +54,7 @@ Foxtrot/
 - **Standalone mode:** `frontend/app.py` imports `backend/optimizer.py` and `backend/llm_layer.py` directly. No separate backend server needed for Streamlit Cloud deployment.
 - **Unconstrained optimizer:** If budget < minimum required → returns infeasibility + 3 options (increase budget, lower target, show what's possible).
 - **LLM reads from env vars:** `llm_layer.py` uses `os.getenv("ANTHROPIC_API_KEY")` — no keys in code. Supports `ANTHROPIC_MODEL` override (default: `tencent/hy3-preview:free`).
-- **Streamlit Cloud:** Deploy with main file `frontend/app.py`, requirements `frontend/requirements.txt`.
+- **Streamlit Cloud:** Deploy with main file `frontend/app.py`, requirements `requirements.txt`.
 
 ## Key Documents
 
