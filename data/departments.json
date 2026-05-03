@@ -1,0 +1,14 @@
+[
+    {"id": 101, "name": "Men's Shoes", "category_id": 1},
+    {"id": 102, "name": "Men's Apparel", "category_id": 1},
+    {"id": 103, "name": "Men's Accessories", "category_id": 1},
+    {"id": 104, "name": "Women's Shoes", "category_id": 2},
+    {"id": 105, "name": "Women's Apparel", "category_id": 2},
+    {"id": 106, "name": "Women's Accessories", "category_id": 2},
+    {"id": 107, "name": "Kids' Shoes", "category_id": 3},
+    {"id": 108, "name": "Kids' Apparel", "category_id": 3},
+    {"id": 109, "name": "Home Textiles", "category_id": 4},
+    {"id": 110, "name": "Home Decor", "category_id": 4},
+    {"id": 111, "name": "Handbags", "category_id": 5},
+    {"id": 112, "name": "Jewelry", "category_id": 5}
+]

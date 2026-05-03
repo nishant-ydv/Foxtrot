@@ -1,0 +1,113 @@
+{
+    "department_id": 105,
+    "department_name": "Women's Apparel",
+    "category_id": 2,
+    "season": "Fall/Holiday",
+    "sku_clusters": [
+        {
+            "segment": "A",
+            "demand_mean": 1851,
+            "demand_std": 300,
+            "unit_cost": 154.14,
+            "pog_capacity": 5000
+        },
+        {
+            "segment": "A",
+            "demand_mean": 1286,
+            "demand_std": 250,
+            "unit_cost": 173.53,
+            "pog_capacity": 4000
+        },
+        {
+            "segment": "A",
+            "demand_mean": 1527,
+            "demand_std": 400,
+            "unit_cost": 139.41,
+            "pog_capacity": 6000
+        },
+        {
+            "segment": "A",
+            "demand_mean": 1026,
+            "demand_std": 200,
+            "unit_cost": 106.59,
+            "pog_capacity": 3000
+        },
+        {
+            "segment": "A",
+            "demand_mean": 1054,
+            "demand_std": 450,
+            "unit_cost": 144.0,
+            "pog_capacity": 7000
+        },
+        {
+            "segment": "B",
+            "demand_mean": 390,
+            "demand_std": 150,
+            "unit_cost": 129.35,
+            "pog_capacity": 4000
+        },
+        {
+            "segment": "B",
+            "demand_mean": 802,
+            "demand_std": 200,
+            "unit_cost": 120.92,
+            "pog_capacity": 5000
+        },
+        {
+            "segment": "B",
+            "demand_mean": 539,
+            "demand_std": 120,
+            "unit_cost": 111.51,
+            "pog_capacity": 3000
+        },
+        {
+            "segment": "B",
+            "demand_mean": 494,
+            "demand_std": 180,
+            "unit_cost": 149.0,
+            "pog_capacity": 4500
+        },
+        {
+            "segment": "C",
+            "demand_mean": 298,
+            "demand_std": 80,
+            "unit_cost": 87.51,
+            "pog_capacity": 5000
+        },
+        {
+            "segment": "C",
+            "demand_mean": 175,
+            "demand_std": 60,
+            "unit_cost": 87.57,
+            "pog_capacity": 4000
+        },
+        {
+            "segment": "C",
+            "demand_mean": 324,
+            "demand_std": 100,
+            "unit_cost": 78.79,
+            "pog_capacity": 6000
+        },
+        {
+            "segment": "R",
+            "demand_mean": 1613,
+            "demand_std": 200,
+            "unit_cost": 64.93,
+            "pog_capacity": 5000
+        },
+        {
+            "segment": "R",
+            "demand_mean": 3091,
+            "demand_std": 250,
+            "unit_cost": 92.75,
+            "pog_capacity": 6000
+        },
+        {
+            "segment": "R",
+            "demand_mean": 1936,
+            "demand_std": 150,
+            "unit_cost": 52.56,
+            "pog_capacity": 4000
+        }
+    ]
+}

@@ -12,11 +12,32 @@ from typing import Dict, Any, List, Optional
 from anthropic import Anthropic
 
 
-# Initialize Claude client
-api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
-client = Anthropic(api_key=api_key) if api_key else None
+# Initialize Claude/OpenRouter client
+# Reads from parent ~/.claude/settings.json via env vars
+api_key = (os.getenv("ANTHROPIC_AUTH_TOKEN") or os.getenv("ANTHROPIC_API_KEY", "")).strip()
+base_url = os.getenv("ANTHROPIC_BASE_URL", "").strip()
 
-MODEL = "claude-sonnet-4-6"  # Cost-effective for V0
+client = Anthropic(api_key=api_key, base_url=base_url if base_url else None) if api_key else None
+
+MODEL = os.getenv("ANTHROPIC_MODEL", "tencent/hy3-preview:free")
+
+
+def _extract_text(response) -> str:
+    """Extract text from Anthropic/OpenRouter response content blocks.
+
+    Handles: TextBlock (.text), ThinkingBlock (.thinking), RedactedThinkingBlock.
+    Returns text from TextBlock, or thinking content as fallback.
+    """
+    text_parts = []
+    thinking_parts = []
+    for block in response.content:
+        if hasattr(block, 'text') and block.text:
+            text_parts.append(block.text)
+        elif hasattr(block, 'thinking') and block.thinking:
+            thinking_parts.append(str(block.thinking))
+    # Prefer text blocks, fall back to thinking content
+    result = ''.join(text_parts).strip() or ''.join(thinking_parts).strip()
+    return result
 
 
 def parse_scenario(nl_input: str, current_policy: Dict[str, Any], budget: float, service_target: float) -> Dict[str, Any]:
@@ -69,7 +90,7 @@ Respond with JSON only: {{"action": "<action>", "value": <number>, "segments": [
             messages=[{"role": "user", "content": user_prompt}],
             system=system_prompt
         )
-        content = response.content[0].text.strip()
+        content = _extract_text(response)
 
         # Extract JSON from response
         if "{" in content:
@@ -145,8 +166,8 @@ Write a 2-3 sentence narration in business language that explains:
             messages=[{"role": "user", "content": user_prompt}],
             system=system_prompt
         )
-        return response.content[0].text.strip()
-    except Exception as e:
+        return _extract_text(response)
+    except Exception:
         # Fallback narration
         if budget_change < 0:
             return (f"Reducing budget by ${-budget_change:,.0f} saves costs but "
@@ -199,8 +220,8 @@ Provide a concise explanation (2-3 sentences) and clearly list the 3 options."""
             messages=[{"role": "user", "content": user_prompt}],
             system=system_prompt
         )
-        return response.content[0].text.strip()
-    except Exception as e:
+        return _extract_text(response)
+    except Exception:
         # Fallback explanation
         achievable = max(80.0, service_target * (budget / min_budget))
         return (
@@ -262,7 +283,7 @@ Frame this as a decision with 2-3 options. Respond in JSON:
             messages=[{"role": "user", "content": user_prompt}],
             system=system_prompt
         )
-        content = response.content[0].text.strip()
+        content = _extract_text(response)
 
         if "{" in content:
             json_start = content.index("{")

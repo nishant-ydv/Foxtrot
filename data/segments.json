@@ -1,0 +1,42 @@
+{
+    "segments": [
+        {
+            "id": "A",
+            "name": "High Velocity",
+            "description": "Fast-selling items, high margin",
+            "z_score": 1.64,
+            "default_dcc": 97.0,
+            "default_safety_stock_pct": 15.0
+        },
+        {
+            "id": "B",
+            "name": "Medium Velocity",
+            "description": "Steady sellers, moderate margin",
+            "z_score": 1.28,
+            "default_dcc": 95.0,
+            "default_safety_stock_pct": 20.0
+        },
+        {
+            "id": "C",
+            "name": "Low Velocity",
+            "description": "Slow sellers, low margin",
+            "z_score": 1.04,
+            "default_dcc": 90.0,
+            "default_safety_stock_pct": 30.0
+        },
+        {
+            "id": "R",
+            "name": "Reliability",
+            "description": "Must-always-be-in-stock basics",
+            "z_score": 2.33,
+            "default_dcc": 99.0,
+            "default_safety_stock_pct": 10.0
+        }
+    ],
+    "preseason_allocation_fashion": 55.0,
+    "inseason_allocation_fashion": 35.0,
+    "markdown_reserve_fashion": 10.0,
+    "preseason_allocation_basics": 25.0,
+    "inseason_allocation_basics": 70.0,
+    "markdown_reserve_basics": 10.0
+}

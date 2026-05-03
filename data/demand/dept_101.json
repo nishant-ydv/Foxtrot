@@ -1,0 +1,23 @@
+{
+    "department_id": 101,
+    "department_name": "Men's Shoes",
+    "category_id": 1,
+    "season": "Fall/Holiday",
+    "sku_clusters": [
+        {"segment": "A", "demand_mean": 1500, "demand_std": 300, "unit_cost": 85.0, "pog_capacity": 5000},
+        {"segment": "A", "demand_mean": 1200, "demand_std": 250, "unit_cost": 95.0, "pog_capacity": 4000},
+        {"segment": "A", "demand_mean": 1800, "demand_std": 400, "unit_cost": 75.0, "pog_capacity": 6000},
+        {"segment": "A", "demand_mean": 900, "demand_std": 200, "unit_cost": 120.0, "pog_capacity": 3000},
+        {"segment": "A", "demand_mean": 2000, "demand_std": 450, "unit_cost": 65.0, "pog_capacity": 7000},
+        {"segment": "B", "demand_mean": 600, "demand_std": 150, "unit_cost": 70.0, "pog_capacity": 4000},
+        {"segment": "B", "demand_mean": 800, "demand_std": 200, "unit_cost": 80.0, "pog_capacity": 5000},
+        {"segment": "B", "demand_mean": 500, "demand_std": 120, "unit_cost": 90.0, "pog_capacity": 3000},
+        {"segment": "B", "demand_mean": 700, "demand_std": 180, "unit_cost": 75.0, "pog_capacity": 4500},
+        {"segment": "C", "demand_mean": 200, "demand_std": 80, "unit_cost": 60.0, "pog_capacity": 5000},
+        {"segment": "C", "demand_mean": 150, "demand_std": 60, "unit_cost": 55.0, "pog_capacity": 4000},
+        {"segment": "C", "demand_mean": 300, "demand_std": 100, "unit_cost": 50.0, "pog_capacity": 6000},
+        {"segment": "R", "demand_mean": 2500, "demand_std": 200, "unit_cost": 45.0, "pog_capacity": 5000},
+        {"segment": "R", "demand_mean": 3000, "demand_std": 250, "unit_cost": 40.0, "pog_capacity": 6000},
+        {"segment": "R", "demand_mean": 1800, "demand_std": 150, "unit_cost": 50.0, "pog_capacity": 4000}
+    ]
+}
