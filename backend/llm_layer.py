@@ -4,34 +4,35 @@ import json
 import re
 from typing import Dict, Any, List, Optional
 
-# Load .env file so API keys are available regardless of import order
-try:
-    from dotenv import load_dotenv
-    _env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")
-    if os.path.exists(_env_path):
-        load_dotenv(_env_path, override=True)
-except ImportError:
-    pass  # dotenv not installed; rely on environment variables
-
-# Initialize Anthropic client (works with OpenRouter)
-api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
-if not api_key:
-    api_key = os.getenv("ANTHROPIC_AUTH_TOKEN", "").strip()
-
-base_url = os.getenv("ANTHROPIC_BASE_URL", "").strip()
-
-try:
-    from anthropic import Anthropic
-    client = Anthropic(api_key=api_key, base_url=base_url if base_url else None) if api_key else None
-except ImportError:
-    client = None
-
 MODEL_PRIMARY = os.getenv("ANTHROPIC_MODEL", "tencent/hy3-preview:free")
 MODEL_FALLBACK = os.getenv("ANTHROPIC_FALLBACK_MODEL", "openai/gpt-oss-120b:free")
 MODELS = [MODEL_PRIMARY, MODEL_FALLBACK]
 
-import sys
-print(f"[LLM Layer] API_KEY: {bool(api_key)}, Primary: {MODEL_PRIMARY}, Fallback: {MODEL_FALLBACK}, Client: {client is not None}", file=sys.stderr)
+_client = None
+
+def _get_client():
+    """Lazily initialize Anthropic client — reads env vars at call time (Streamlit Cloud compatible)."""
+    global _client
+    if _client is not None:
+        return _client
+
+    # .env loading is handled by frontend/app.py before importing this module.
+    # Streamlit secrets are also loaded into os.environ by frontend/app.py.
+    api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
+    if not api_key:
+        api_key = os.getenv("ANTHROPIC_AUTH_TOKEN", "").strip()
+
+    base_url = os.getenv("ANTHROPIC_BASE_URL", "").strip()
+
+    try:
+        from anthropic import Anthropic
+        _client = Anthropic(api_key=api_key, base_url=base_url if base_url else None) if api_key else None
+    except ImportError:
+        _client = None
+
+    import sys
+    print(f"[LLM Layer] API_KEY: {bool(api_key)}, Client: {_client is not None}", file=sys.stderr)
+    return _client
 def filter_reasoning(text: str) -> str:
     """Remove reasoning traces, meta-commentary, and parenthetical notes from LLM output."""
     if not text:
@@ -61,6 +62,7 @@ def filter_reasoning(text: str) -> str:
 
 def _call_llm(system_prompt: str, user_prompt: str) -> str:
     """Call LLM with fallback chain and return ONLY text blocks (never thinking/reasoning)."""
+    client = _get_client()
     if not client:
         return ""
     for model in MODELS:
@@ -117,7 +119,7 @@ def _call_llm(system_prompt: str, user_prompt: str) -> str:
 
 def parse_scenario(nl_input: str, current_policy: Dict[str, Any], budget: float, service_target: float) -> Dict[str, Any]:
     """Parse natural language scenario into optimizer parameter changes. Reject invalid inputs."""
-    if not client:
+    if not _get_client():
         return {
             "action": "unknown",
             "value": 0,
@@ -266,7 +268,7 @@ Explain and list 3 options:"""
 def frame_decision(decision_context: str, dept_id: int, budget: float, current_service: float) -> Dict[str, Any]:
     """Frame a high-stakes decision. Reject invalid inputs."""
     # First: validate this is a legitimate decision context
-    if not client:
+    if not _get_client():
         chase_up = budget * 0.02
         chase_down = budget * 0.03
         hold_down = budget * 0.05

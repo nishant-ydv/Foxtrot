@@ -14,3 +14,14 @@ build/
 
 # Local QA Agent
 .qa-logs/
+
+# macOS
+.DS_Store
+backend/.DS_Store
+frontend/.DS_Store
+
+# Syncthing
+.stfolder/
+
+# Claude Code
+.claude/
