@@ -2,6 +2,7 @@
 import os
 import json
 import re
+import sys
 from typing import Dict, Any, List, Optional
 
 MODEL_PRIMARY = os.getenv("ANTHROPIC_MODEL", "tencent/hy3-preview:free")
@@ -30,7 +31,6 @@ def _get_client():
     except ImportError:
         _client = None
 
-    import sys
     print(f"[LLM Layer] API_KEY: {bool(api_key)}, Client: {_client is not None}", file=sys.stderr)
     return _client
 def filter_reasoning(text: str) -> str:
@@ -265,24 +265,56 @@ Explain and list 3 options:"""
                 f"Options: (1) Increase budget, (2) Lower target, (3) Keep budget.")
 
 
-def frame_decision(decision_context: str, dept_id: int, budget: float, current_service: float) -> Dict[str, Any]:
-    """Frame a high-stakes decision. Reject invalid inputs."""
-    # First: validate this is a legitimate decision context
-    if not _get_client():
-        chase_up = budget * 0.02
-        chase_down = budget * 0.03
-        hold_down = budget * 0.05
+def _fallback_decision(decision_context: str, budget: float) -> Dict[str, Any]:
+    """Smart fallback when LLM is unavailable — use keywords to pick recommendation."""
+    ctx = decision_context.lower()
+
+    # Overforecast: demand is lower than forecasted → Hold (don't build inventory)
+    hold_keywords = ["overforecast", "forecast high", "excess", "demand lower", "too high", "forecast low"]
+    # Underforecast: demand is higher than forecasted → Chase
+    chase_keywords = ["underforecast", "shortage", "demand higher", "too low", "forecast drop"]
+
+    is_hold = any(kw in ctx for kw in hold_keywords)
+    is_chase = any(kw in ctx for kw in chase_keywords)
+
+    # Default: Chase if unclear
+    recommend_hold = is_hold and not is_chase
+
+    chase_up = budget * 0.02
+    chase_down = budget * 0.03
+    hold_down = budget * 0.05
+
+    if recommend_hold:
+        return {
+            "options": [
+                {"option": "Hold", "description": "Accept miss and adjust targets",
+                 "upside": 0, "downside": -hold_down, "recommendation": True,
+                 "explanation": f"Hold: Accept the overforecast and adjust targets. Avoids excess inventory buildup. Downside: -${hold_down/1_000_000:.1f}M potential sales loss."},
+                {"option": "Chase", "description": "Place POs mid-season to meet original targets",
+                 "upside": chase_up, "downside": -chase_down, "recommendation": False,
+                 "explanation": f"Chase: Increase purchasing mid-season. Upside: +${chase_up/1_000_000:.1f}M if demand recovers, but risky with low forecast."}
+            ],
+            "recommendation": "Hold"
+        }
+    else:
         return {
             "options": [
                 {"option": "Chase", "description": "Place POs mid-season to meet original targets",
                  "upside": chase_up, "downside": -chase_down, "recommendation": True,
-                 "explanation": f"Chase: Increase purchasing mid-season to meet targets despite forecast errors. Upside: +${chase_up/1_000_000:.1f}M sales uplift (~{int(chase_up/budget*100)}% revenue capture), Downside: -${chase_down/1_000_000:.1f}M potential sales loss if demand isn't met. PO volume: ~${chase_up:,.0f} in additional orders."},
+                 "explanation": f"Chase: Increase purchasing mid-season to meet targets. Upside: +${chase_up/1_000_000:.1f}M sales uplift, Downside: -${chase_down/1_000_000:.1f}M if demand misses."},
                 {"option": "Hold", "description": "Accept miss and adjust targets",
                  "upside": 0, "downside": -hold_down, "recommendation": False,
-                 "explanation": f"Hold: Accept the mid-season miss and adjust targets. Downside: -${hold_down/1_000_000:.1f}M potential sales loss from unmet demand (~{int(hold_down/budget*100)}% of budget at risk). No additional PO volume."}
+                 "explanation": f"Hold: Accept the miss and adjust targets. Downside: -${hold_down/1_000_000:.1f}M potential sales loss."}
             ],
             "recommendation": "Chase"
         }
+
+
+def frame_decision(decision_context: str, dept_id: int, budget: float, current_service: float) -> Dict[str, Any]:
+    """Frame a high-stakes decision. Reject invalid inputs."""
+    # First: validate this is a legitimate decision context
+    if not _get_client():
+        return _fallback_decision(decision_context, budget)
 
     system_prompt_validate = """You are a retail decision validator. Determine if the input is a valid mid-season decision context.
 
@@ -334,9 +366,16 @@ STRICT RULES:
 - NO text before or after the JSON
 - NO phrases like "Wait", "Let me", "Here's", "Based on"
 - Keep explanations to 1 sentence, plain English
-- Generate 2-3 decision options SPECIFIC to the context provided (e.g., "Expedite shipping", "Negotiate with vendor", "Adjust safety stock")
-- For upside/downside: explain these are net financial impact in dollars
-- DO NOT always use "Chase" and "Hold" - use context-appropriate option names"""
+- Generate 2-3 decision options SPECIFIC to the context provided
+- For upside/downside: these are net financial impact in dollars
+- DO NOT always use "Chase" and "Hold" - use context-appropriate option names
+
+DECISION LOGIC:
+- If demand is LOWER than forecasted (overforecasted, "forecast high", excess inventory): recommend HOLD/ACCEPT - no need to chase
+- If demand is HIGHER than forecasted (underforecasted, "forecast low", shortage): recommend CHASE/EXPEDITE to meet demand
+- If supply chain issues (delay, cost increase): recommend NEGOTIATE or EXPEDITE with upsides/downsides
+- If excess inventory: recommend MARKDOWN or HOLD
+- If stockout risk: recommend CHASE or EXPEDITE"""
         user_prompt = f"""Context: {decision_context}
 State: Dept {dept_id}, Budget ${budget:,.0f}, Service {current_service}%
 
@@ -347,32 +386,6 @@ Respond JSON ONLY:"""
             json_start = content.index("{")
             json_end = content.rindex("}") + 1
             return json.loads(content[json_start:json_end])
-        chase_up = budget * 0.02
-        chase_down = budget * 0.03
-        hold_down = budget * 0.05
-        return {
-            "options": [
-                {"option": "Chase", "description": "Place POs mid-season to meet original targets",
-                 "upside": chase_up, "downside": -chase_down, "recommendation": True,
-                 "explanation": f"Chase: Increase purchasing mid-season to meet targets despite forecast errors. Upside: +${chase_up:,.0f} net gain, Downside: -${chase_down:,.0f} net loss."},
-                {"option": "Hold", "description": "Accept miss and adjust targets",
-                 "upside": 0, "downside": -hold_down, "recommendation": False,
-                 "explanation": f"Hold: Accept the mid-season miss and adjust targets. Downside: -${hold_down:,.0f} net loss from lost sales."}
-            ],
-            "recommendation": "Chase"
-        }
+        return _fallback_decision(decision_context, budget)
     except Exception:
-        chase_up = budget * 0.02
-        chase_down = budget * 0.03
-        hold_down = budget * 0.05
-        return {
-            "options": [
-                {"option": "Chase", "description": "Place POs mid-season to meet original targets",
-                 "upside": chase_up, "downside": -chase_down, "recommendation": True,
-                 "explanation": f"Chase: Increase purchasing mid-season to meet targets despite forecast errors. Upside: +${chase_up:,.0f} net gain, Downside: -${chase_down:,.0f} net loss."},
-                {"option": "Hold", "description": "Accept miss and adjust targets",
-                 "upside": 0, "downside": -hold_down, "recommendation": False,
-                 "explanation": f"Hold: Accept the mid-season miss and adjust targets. Downside: -${hold_down:,.0f} net loss from lost sales."}
-            ],
-            "recommendation": "Chase"
-        }
+        return _fallback_decision(decision_context, budget)
