@@ -4,6 +4,15 @@ import json
 import re
 from typing import Dict, Any, List, Optional
 
+# Load .env file so API keys are available regardless of import order
+try:
+    from dotenv import load_dotenv
+    _env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env")
+    if os.path.exists(_env_path):
+        load_dotenv(_env_path, override=True)
+except ImportError:
+    pass  # dotenv not installed; rely on environment variables
+
 # Initialize Anthropic client (works with OpenRouter)
 api_key = os.getenv("ANTHROPIC_API_KEY", "").strip()
 if not api_key:
@@ -11,8 +20,11 @@ if not api_key:
 
 base_url = os.getenv("ANTHROPIC_BASE_URL", "").strip()
 
-from anthropic import Anthropic
-client = Anthropic(api_key=api_key, base_url=base_url if base_url else None) if api_key else None
+try:
+    from anthropic import Anthropic
+    client = Anthropic(api_key=api_key, base_url=base_url if base_url else None) if api_key else None
+except ImportError:
+    client = None
 
 MODEL_PRIMARY = os.getenv("ANTHROPIC_MODEL", "tencent/hy3-preview:free")
 MODEL_FALLBACK = os.getenv("ANTHROPIC_FALLBACK_MODEL", "openai/gpt-oss-120b:free")
