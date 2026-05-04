@@ -12,6 +12,26 @@ import math
 import os
 from typing import Dict, Any, List, Tuple, Optional
 
+
+def _inverse_normal_cdf(p: float) -> float:
+    """Approximate inverse CDF of standard normal (Acklam's approximation)."""
+    if p <= 0:
+        return float('-inf')
+    if p >= 1:
+        return float('inf')
+    if p == 0.5:
+        return 0.0
+    if p < 0.5:
+        t = math.sqrt(-2.0 * math.log(p))
+        c0, c1, c2 = 2.515517, 0.802853, 0.010328
+        d1, d2, d3 = 1.432788, 0.189269, 0.001308
+        return -(t - (c0 + c1*t + c2*t*t) / (1.0 + d1*t + d2*t*t + d3*t*t*t))
+    else:
+        t = math.sqrt(-2.0 * math.log(1.0 - p))
+        c0, c1, c2 = 2.515517, 0.802853, 0.010328
+        d1, d2, d3 = 1.432788, 0.189269, 0.001308
+        return t - (c0 + c1*t + c2*t*t) / (1.0 + d1*t + d2*t*t + d3*t*t*t)
+
 # Base directory for data files
 _BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -65,14 +85,16 @@ def compute_min_budget(
             continue
 
         # Target DCC based on segment priority
+        # R-items (must-have) get highest priority, then A, then B/C
+        # Use minimum floors to protect high-priority segments even at low service targets
         if seg_id == "R":
-            target_dcc = min(99.0, service_target + 2.0)
+            target_dcc = min(99.0, max(95.0, service_target + 2.0))
         elif seg_id == "A":
-            target_dcc = service_target
+            target_dcc = max(85.0, service_target)
         elif seg_id == "B":
-            target_dcc = max(85.0, service_target - 2.0)
+            target_dcc = max(75.0, service_target - 2.0)
         else:  # C
-            target_dcc = max(80.0, service_target - 5.0)
+            target_dcc = max(70.0, service_target - 5.0)
 
         # Safety stock % of POG
         dcc_factor = target_dcc / seg_def["default_dcc"]
@@ -89,10 +111,13 @@ def compute_min_budget(
             pog = sku["pog_capacity"]
             std = sku["demand_std"]
 
-            # Safety stock in units
+            # Safety stock: statistical (scales with service) + business floor
             weekly_std = std / 4.0
-            safety_units = seg_def["z_score"] * math.sqrt(6.0) * weekly_std
-            actual_safety_units = safety_units * (safety_stock_pct / 100.0)
+            z_score = _inverse_normal_cdf(target_dcc / 100.0)
+            statistical_safety = z_score * math.sqrt(6.0) * weekly_std
+            scaled_pct = safety_stock_pct * (target_dcc / 100.0)
+            min_safety_from_pog = pog * (scaled_pct / 100.0)
+            actual_safety_units = max(statistical_safety, min_safety_from_pog)
 
             # Cost = (demand + safety stock) * unit_cost * 1.15 (buffer)
             inventory_needed = demand + actual_safety_units
@@ -134,7 +159,8 @@ def optimize_policy(
     budget: float,
     service_target: float,
     dept_id: int,
-    season: str = "Fall/Holiday"
+    season: str = "Fall/Holiday",
+    return_sku_level: bool = False
 ) -> Dict[str, Any]:
     """Optimize inventory policy for a department (pure Python, no OR-Tools).
 
@@ -170,11 +196,22 @@ def optimize_policy(
         result["minimum_budget"] = min_budget
         result["achieved_service"] = achievable_service
         result["options"] = ["increase_budget", "lower_target", "show_whats_possible"]
-        result["configs"] = None
+        # Compute achievable configs instead of None (matches OR-Tools optimizer behavior)
+        achievable_configs = {}
+        if achievable_service > 0:
+            temp_min_budget, temp_configs = compute_min_budget(achievable_service, dept_data, segments_data)
+            achievable_configs = adjust_configs_to_budget(temp_configs, budget, temp_min_budget, achievable_service, segments_data)
+        result["configs"] = achievable_configs
+        result["total_cost"] = round(sum(cfg.get("segment_cost", 0) for cfg in achievable_configs.values()),0) if achievable_configs else 0
         result["message"] = (
             f"Target: {service_target}% WIP with ${budget:,.0f} is not achievable. "
             f"Minimum budget required: ${min_budget:,.0f}."
         )
+
+        # SKU-level configs
+        if return_sku_level:
+            result["sku_configs"] = _compute_sku_configs(achievable_configs, dept_data, segments_data, achievable_service)
+
         return result
 
     # FEASIBLE — use budget efficiently
@@ -193,6 +230,11 @@ def optimize_policy(
         f"Target {service_target}% WIP achieved at ${budget:,.0f} budget. "
         f"Achieved service level: {achieved:.1f}%."
     )
+
+    # SKU-level configs
+    if return_sku_level:
+        result["sku_configs"] = _compute_sku_configs(adjusted_configs, dept_data, segments_data, service_target)
+
     return result
 
 
@@ -223,13 +265,17 @@ def adjust_configs_to_budget(
     target: float,
     segments_data: Dict
 ) -> Dict[str, Dict]:
-    """Adjust configurations to efficiently use the available budget."""
+    """Adjust configurations to fit the available budget.
+
+    If budget >= min_budget: improve service on high-priority segments (R > A > B > C).
+    If budget < min_budget: reduce low-priority segments first (C > B > A > R).
+    """
     adjusted = {}
 
     for seg_id, cfg in configs.items():
         adjusted[seg_id] = dict(cfg)
 
-    if budget > min_budget:
+    if budget >= min_budget:
         surplus = budget - min_budget
         priority_order = ["R", "A", "B", "C"]
 
@@ -249,6 +295,38 @@ def adjust_configs_to_budget(
                 adjusted[seg_id]["dcc_pct"] = round(
                     min(99.5, adjusted[seg_id]["dcc_pct"] + 0.5), 1
                 )
+    else:
+        # Budget is insufficient — reduce low-priority segments first
+        deficit = min_budget - budget
+        reduction_order = ["C", "B", "A", "R"]
+        protect_segments = {"R"}  # R is never reduced
+
+        for seg_id in reduction_order:
+            if seg_id not in adjusted or deficit <= 0:
+                continue
+            if seg_id in protect_segments:
+                continue
+
+            cfg = adjusted[seg_id]
+            seg_cost = cfg.get("segment_cost", 0)
+            if seg_cost <= 0:
+                continue
+
+            reduction = min(deficit, seg_cost * 0.3)  # Cut at most 30% per segment
+            reduction_pct = (reduction / seg_cost) if seg_cost > 0 else 0
+
+            # Reduce DCC
+            dcc_reduction = reduction_pct * cfg["dcc_pct"]
+            new_dcc = max(50.0, cfg["dcc_pct"] - dcc_reduction)
+            cfg["dcc_pct"] = round(new_dcc, 1)
+
+            # Reduce safety stock
+            ss_reduction = reduction_pct * cfg["safety_stock_pct"]
+            new_ss = max(5.0, cfg["safety_stock_pct"] - ss_reduction)
+            cfg["safety_stock_pct"] = round(new_ss, 1)
+
+            cfg["segment_cost"] = round(seg_cost - reduction, 0)
+            deficit -= reduction
 
     return adjusted
 
@@ -264,6 +342,52 @@ def compute_achieved_service(budget: float, min_budget: float, target: float) ->
 
 
 # For multi-department optimization (stretch goal)
+
+def _compute_sku_configs(configs: Dict[str, Dict], dept_data: Dict, segments_data: Dict, target_dcc: float) -> Dict[str, Dict]:
+    """Compute per-SKU policy configs from segment-level configs."""
+    sku_configs = {}
+    sku_clusters = dept_data.get("sku_clusters", [])
+    segments = segments_data.get("segments", [])
+    
+    for sku in sku_clusters:
+        seg = sku.get("segment", "A")
+        seg_cfg = configs.get(seg, {})
+        seg_def = next((s for s in segments if s["id"] == seg), None)
+        
+        if not seg_def:
+            continue
+        
+        # Per-SKU DCC (same as segment)
+        sku_dcc = seg_cfg.get("dcc_pct", 95.0)
+        
+        # Per-SKU safety stock
+        lead_time = 6.0
+        weekly_std = sku["demand_std"] / 4.0
+        z_score = _inverse_normal_cdf(sku_dcc / 100.0)
+        safety_units = z_score * math.sqrt(lead_time) * weekly_std
+        safety_pct = (safety_units / max(sku["pog_capacity"], 1)) * 100.0
+        
+        # Per-SKU MOQ
+        sku_moq = int(sku["demand_mean"] * 0.05)
+        
+        # Per-SKU cost
+        sku_cost = (sku["demand_mean"] + safety_units) * sku["unit_cost"] * 1.15
+        
+        sku_configs[sku["cluster_id"]] = {
+            "sku_name": sku["item_name"],
+            "segment": seg,
+            "dcc_pct": sku_dcc,
+            "safety_stock_pct": round(safety_pct, 1),
+            "reorder_point": int(sku["demand_mean"] * 0.15),
+            "order_frequency_days": 7 if seg in ["A", "R"] else 14,
+            "moq_threshold": sku_moq,
+            "unit_cost": sku["unit_cost"],
+            "estimated_cost": round(sku_cost, 0),
+        }
+    
+    return sku_configs
+
+
 def optimize_multi_department(
     total_budget: float,
     dept_requests: List[Dict[str, Any]]

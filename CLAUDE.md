@@ -53,8 +53,18 @@ Foxtrot/
 
 - **Standalone mode:** `frontend/app.py` imports `backend/optimizer.py` and `backend/llm_layer.py` directly. No separate backend server needed for Streamlit Cloud deployment.
 - **Unconstrained optimizer:** If budget < minimum required → returns infeasibility + 3 options (increase budget, lower target, show what's possible).
-- **LLM reads from env vars:** `llm_layer.py` uses `os.getenv("ANTHROPIC_API_KEY")` — no keys in code. Supports `ANTHROPIC_MODEL` override (default: `tencent/hy3-preview:free`).
+- **LLM reads from env vars:** `llm_layer.py` uses `os.getenv("ANTHROPIC_API_KEY")` — no keys in code. Supports `ANTHROPIC_MODEL` override (default: `tencent/hy3-preview:free`). Falls back to `ANTHROPIC_FALLBACK_MODEL` (default: `openai/gpt-oss-120b:free`) if primary fails. Handles rate limiting (429) with exponential backoff.
+- **Backend optimizer fallback:** `main.py` tries `optimizer.py` (OR-Tools), falls back to `optimizer_simple.py` if OR-Tools unavailable. Same pattern as `frontend/app.py`.
+- **CORS:** Controlled via `CORS_ORIGINS` env var (comma-separated URLs, default: `*`). Restrict in production.
+- **Data validation:** `optimizer.py` validates demand files exist, have valid JSON structure, and contain non-zero demand data.
+- **Approvals:** `_save_approvals()` in `main.py` handles disk errors gracefully.
 - **Streamlit Cloud:** Deploy with main file `frontend/app.py`, requirements `requirements.txt`.
+
+## Parallel Agent Rules
+
+1. **Multiple agents may be working simultaneously.** If you see build errors in files you did NOT edit, do not try to fix them. Wait 30 seconds and retry the build — the other agent is likely mid-edit.
+
+2. **Multiple agents may be working simultaneously.** Log every action (posts made, files edited, API calls) to postgres or local md file with timestamps and agent session IDs.
 
 ## Key Documents
 

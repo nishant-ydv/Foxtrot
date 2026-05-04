@@ -18,9 +18,17 @@ from pydantic import BaseModel
 from models import (
     OptimizeRequest, OptimizeResponse, ScenarioRequest, ScenarioResponse,
     DecisionRequest, DecisionResponse, DepartmentsResponse,
-    DepartmentInfo, CategoryInfo, PolicyConfig
+    DepartmentInfo, CategoryInfo, PolicyConfig,
+    PolicyApprovalRequest, PolicyApprovalResponse
 )
-import optimizer as opt
+# Optimizer import with fallback (same pattern as frontend/app.py)
+try:
+    import optimizer as opt
+except ImportError:
+    try:
+        import optimizer_simple as opt
+    except ImportError:
+        opt = None
 import llm_layer as llm
 
 # Base directory for data files
@@ -35,9 +43,10 @@ app = FastAPI(
 )
 
 # CORS middleware for Streamlit frontend
+_cors_origins = os.getenv("CORS_ORIGINS", "*").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict in production
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -71,7 +80,7 @@ def _policy_configs_to_response(configs: Dict[str, Dict]) -> Dict[str, PolicyCon
             moq_threshold=cfg["moq_threshold"],
             preseason_allocation_pct=cfg["preseason_allocation_pct"],
             inseason_allocation_pct=cfg["inseason_allocation_pct"],
-            markdown_reserve_pct=cfg["markdown_reserve_pct"]
+            end_of_season_pct=cfg["end_of_season_pct"]
         )
     return result
 
@@ -95,17 +104,62 @@ async def get_departments():
 
 @app.post("/optimize", response_model=OptimizeResponse)
 async def optimize(request: OptimizeRequest):
-    """Optimize inventory policy for a department.
+    """Optimize inventory policy for a department or multiple departments/categories.
 
     UNCONSTRAINED: If budget insufficient, returns minimum budget needed + 3 options.
     If feasible, returns optimal policy configs.
+
+    Supports:
+    - Single department: provide dept_id
+    - Multiple departments: provide dept_ids list
+    - Multiple categories: provide category_ids list (maps to all depts in those categories)
     """
+    if opt is None:
+        raise HTTPException(status_code=503, detail="Optimizer not available (OR-Tools and simple optimizer both missing)")
     try:
+        # Determine which departments to optimize
+        dept_list = []
+
+        if request.category_ids:
+            # Map category IDs to department IDs
+            dept_list = opt.get_dept_ids_by_category(request.category_ids)
+        elif request.dept_ids:
+            dept_list = request.dept_ids
+        elif request.dept_id:
+            dept_list = [request.dept_id]
+        else:
+            raise HTTPException(status_code=400, detail="Must provide dept_id, dept_ids, or category_ids")
+
+        # Multi-department optimization
+        if len(dept_list) > 1:
+            dept_requests = [
+                {"dept_id": d, "target": request.service_target, "season": request.season}
+                for d in dept_list
+            ]
+            multi_result = opt.optimize_multi_department(request.budget, dept_requests)
+
+            # Convert to OptimizeResponse format
+            per_dept_configs = {}
+            if multi_result.get("allocation"):
+                for dept_id, alloc in multi_result["allocation"].items():
+                    if alloc.get("policy"):
+                        per_dept_configs[dept_id] = alloc["policy"]
+
+            return OptimizeResponse(
+                feasible=multi_result.get("feasible", False),
+                total_cost=multi_result.get("total_allocated"),
+                per_department_configs=per_dept_configs,
+                aggregated_summary={"total_departments": len(dept_list), "budget": request.budget},
+                options=["increase_budget", "lower_target"] if not multi_result.get("feasible") else None
+            )
+
+        # Single department optimization
         result = opt.optimize_policy(
             budget=request.budget,
             service_target=request.service_target,
-            dept_id=request.dept_id,
-            season=request.season
+            dept_id=dept_list[0],
+            season=request.season,
+            return_sku_level=request.return_sku_level
         )
 
         # Convert configs to Pydantic models if present
@@ -113,19 +167,26 @@ async def optimize(request: OptimizeRequest):
         if result.get("configs"):
             configs_response = _policy_configs_to_response(result["configs"])
 
+        sku_configs = result.get("sku_configs")
+
         return OptimizeResponse(
             feasible=result["feasible"],
             minimum_budget=result.get("minimum_budget"),
             achieved_service=result.get("achieved_service"),
             total_cost=result.get("total_cost"),
+            budget_remaining=result.get("budget_remaining"),
+            budget_remaining_millions=result.get("budget_remaining_millions"),
+            markdown_risk=result.get("markdown_risk"),
+            sales_loss_risk=result.get("sales_loss_risk"),
             configs=configs_response,
+            sku_configs=sku_configs,
             options=result.get("options"),
             narration=result.get("narration"),
             dept_id=result.get("dept_id"),
             dept_name=result.get("dept_name")
         )
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail=f"Department {request.dept_id} not found")
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=f"Department not found: {str(e)}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Optimization failed: {str(e)}")
 
@@ -252,6 +313,71 @@ async def optimize_multi(request: Dict[str, Any]):
 async def health():
     """Health check endpoint."""
     return {"status": "healthy", "version": "0.1.0"}
+
+
+# --- Policy Approval Endpoints ---
+
+def _load_approvals():
+    """Load approvals from JSON file."""
+    path = os.path.join(_BASE_DIR, "data", "approvals.json")
+    if not os.path.exists(path):
+        return []
+    with open(path) as f:
+        return json.load(f)
+
+
+def _save_approvals(approvals: list):
+    """Save approvals to JSON file."""
+    path = os.path.join(_BASE_DIR, "data", "approvals.json")
+    try:
+        with open(path, "w") as f:
+            json.dump(approvals, f, indent=2)
+    except (OSError, IOError) as e:
+        print(f"[Approvals] Failed to save: {e}", file=sys.stderr)
+        raise HTTPException(status_code=500, detail=f"Failed to save approval: {str(e)}")
+
+
+@app.post("/policy/approve", response_model=PolicyApprovalResponse)
+async def approve_policy(request: PolicyApprovalRequest):
+    """Approve a policy and store it for downstream integration."""
+    try:
+        import datetime
+        approval_id = f"APR-{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}"
+
+        approval = {
+            "approval_id": approval_id,
+            "policy_id": request.policy_id,
+            "approver": request.approver,
+            "approval_notes": request.approval_notes,
+            "status": "approved",
+            "timestamp": datetime.datetime.now().isoformat(),
+            "approved_policy": request.approved_policy
+        }
+
+        # Save to file-based store
+        approvals = _load_approvals()
+        approvals.append(approval)
+        _save_approvals(approvals)
+
+        return PolicyApprovalResponse(
+            approval_id=approval_id,
+            status="approved",
+            timestamp=approval["timestamp"],
+            approved_policy=request.approved_policy,
+            approver=request.approver
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Approval failed: {str(e)}")
+
+
+@app.get("/policy/approvals")
+async def list_approvals():
+    """List all policy approvals."""
+    try:
+        approvals = _load_approvals()
+        return {"approvals": approvals, "count": len(approvals)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load approvals: {str(e)}")
 
 
 if __name__ == "__main__":
