@@ -147,8 +147,8 @@ def cal_optimize(budget: float, target: float, dept_id: int, season: str, dept_i
             st.warning("Multi-department optimization in standalone mode coming soon. Using first selected department.")
             dept_id = dept_ids[0]
         try:
-            # Always request SKU-level data so it's available for "Keep & Show"
-            result = optimize_policy(budget, target, dept_id, season, return_sku_level=True)
+            # Only request SKU-level data when checkbox is checked (save compute)
+            result = optimize_policy(budget, target, dept_id, season, return_sku_level=return_sku_level)
             # Convert to same format as API response
             from models import PolicyConfig
             configs_response = None
@@ -223,6 +223,20 @@ def cal_scenario(nl_input: str, current_policy: Dict, budget: float, target: flo
                 new_target = max(50.0, target - abs(value))
             elif action == "increase_target":
                 new_target = min(99.9, target + abs(value))
+            elif action == "demand_change":
+                # Demand change scenario — generate narration without re-optimizing
+                multiplier = value if value > 0 else 1.0
+                if multiplier > 1:
+                    narration = f"Demand is {multiplier}x forecast. Consider chasing to meet actual demand. Upside: capture increased sales. Downside: risk of over-purchasing if demand doesn't materialize."
+                else:
+                    narration = f"Demand is {multiplier}x forecast (below forecast). Consider holding to avoid excess inventory buildup. Downside: potential lost sales if demand recovers."
+                return {
+                    "feasible": True,
+                    "configs": current_policy,
+                    "narration": narration,
+                    "budget_change": 0.0,
+                    "service_change": 0.0
+                }
 
             # Use first dept if multiple selected (multi-dept scenario coming soon)
             scenario_dept_id = dept_ids[0] if dept_ids and len(dept_ids) > 1 else dept_id
@@ -584,7 +598,7 @@ if result:
 
         # SKU-level table (shown when checkbox is ticked)
         sku_configs = result.get("sku_configs", {})
-        if sku_configs:
+        if sku_view and sku_configs:
             st.subheader("SKU-Level Policy Details")
             sku_rows = []
             for sku_id, cfg in sku_configs.items():
