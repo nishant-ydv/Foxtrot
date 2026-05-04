@@ -11,3 +11,6 @@ build/
 .streamlit/secrets.toml
 .claude/settings.local.json
 *.output
+
+# Local QA Agent
+.qa-logs/

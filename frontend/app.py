@@ -16,7 +16,29 @@ import sys
 from typing import Dict, Any, Optional
 from dotenv import load_dotenv
 
-load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"), override=True)
+# Load API keys into os.environ BEFORE backend imports
+# 1. Try .env file (local development)
+_env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
+if os.path.exists(_env_path):
+    load_dotenv(_env_path, override=True)
+
+# 2. Try Streamlit secrets (Streamlit Cloud deployment)
+try:
+    _secrets = st.secrets
+    # Map secret keys to environment variables
+    _key_map = {
+        "ANTHROPIC_API_KEY": ["anthropic_api_key", "ANTHROPIC_API_KEY"],
+        "ANTHROPIC_BASE_URL": ["anthropic_base_url", "ANTHROPIC_BASE_URL"],
+        "ANTHROPIC_MODEL": ["anthropic_model", "ANTHROPIC_MODEL"],
+        "ANTHROPIC_FALLBACK_MODEL": ["anthropic_fallback_model", "ANTHROPIC_FALLBACK_MODEL"],
+    }
+    for env_key, secret_keys in _key_map.items():
+        for sk in secret_keys:
+            if sk in _secrets:
+                os.environ[env_key] = str(_secrets[sk]).strip()
+                break
+except Exception:
+    pass  # Not on Streamlit Cloud or secrets not configured
 
 # --- Standalone mode: import backend modules directly ---
 # Add backend directory to path so we can import optimizer and llm_layer

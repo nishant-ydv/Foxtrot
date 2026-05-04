@@ -11,11 +11,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 # Backend
-cd backend && source venv/bin/activate
+# Mac/Linux: cd backend && source venv/bin/activate
+# Windows:    cd backend && venv\Scripts\activate
 python -m uvicorn main:app --host 0.0.0.0 --port 8000  # Start FastAPI server
 
 # Frontend (local)
-cd frontend && source venv/bin/activate
+# Mac/Linux: cd frontend && source venv/bin/activate
+# Windows:    cd frontend && venv\Scripts\activate
 streamlit run app.py --server.port 8501
 
 # Test optimizer directly (standalone, no server needed)
@@ -59,6 +61,16 @@ Foxtrot/
 - **Data validation:** `optimizer.py` validates demand files exist, have valid JSON structure, and contain non-zero demand data.
 - **Approvals:** `_save_approvals()` in `main.py` handles disk errors gracefully.
 - **Streamlit Cloud:** Deploy with main file `frontend/app.py`, requirements `requirements.txt`.
+
+## Platform Compatibility
+
+The core codebase (`backend/`, `frontend/`) is cross-platform (Mac/Linux/Windows). Key notes:
+
+- **Virtual env activation:** Mac/Linux: `source venv/bin/activate` | Windows: `venv\Scripts\activate`
+- **Python command:** Mac/Linux: `python3` | Windows: `python`
+- **`.qa-logs/` scripts:** All paths now use `Path(__file__).parent` — no hardcoded `/Users/` paths remain
+- **OR-Tools on Windows:** `optimizer_simple.py` fallback handles missing OR-Tools on any platform
+- **Streamlit Cloud:** Linux-based, unaffected by local OS
 
 ## Parallel Agent Rules
 
