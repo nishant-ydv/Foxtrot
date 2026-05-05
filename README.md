@@ -98,7 +98,7 @@ Open http://localhost:8501 in your browser.
    ```toml
    anthropic_api_key = "sk-..."
    anthropic_base_url = "https://openrouter.ai/api"
-   anthropic_model = "mistralai/mistral-7b-instruct:free"
+   anthropic_model = "tencent/hy3-preview:free"
    ```
 
 ---
