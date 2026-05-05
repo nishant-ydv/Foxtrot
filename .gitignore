@@ -25,3 +25,23 @@ frontend/.DS_Store
 
 # Claude Code
 .claude/
+
+# Internal documentation (brainstorming notes, not for public repo)
+structure.md
+answers.md
+notes_from_v0.md
+Inventory Policy Idea.md
+AI Layer Defense.md
+non_frontend_tasks.md
+Competitive Landscape.md
+implementation_plan_problem_and_user_journey.md
+temp_v0_details.md
+Executive Problem Statement.md
+Problem Reframe & Workflow Map.md
+Foxtrot_V0_Technical_Panel_QA.md
+Retail Product Ideas.md
+SETUP_FREE_DEPLOYMENT.md
+presentation/slides.md
+presentation/demo_video_script.md
+deploy/streamlit-cloud.md
+.agent-state/
