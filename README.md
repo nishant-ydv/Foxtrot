@@ -26,7 +26,7 @@
 
 At large retailers, inventory policies (safety stock, DCC/service levels, reorder points) are defined entirely in **Excel**. Each "what-if" scenario takes **hours**, so teams explore 2–3 scenarios when **20+ should** be evaluated.
 
-> On a $100M budget, suboptimal policies cost **$11–31M per cycle** in avoidable markdowns and lost sales.
+> On a $100M budget, suboptimal policies cost **$3–5M per cycle** in avoidable markdowns and lost sales.
 
 Internal data science teams have simulations that show what configs *do* downstream — but no tool answers the upstream question:
 
