@@ -7,7 +7,8 @@ from typing import Dict, Any, List, Optional
 
 MODEL_PRIMARY = os.getenv("ANTHROPIC_MODEL", "tencent/hy3-preview:free")
 MODEL_FALLBACK = os.getenv("ANTHROPIC_FALLBACK_MODEL", "openai/gpt-oss-120b:free")
-MODELS = [MODEL_PRIMARY, MODEL_FALLBACK]
+MODEL_ULTIMATE = os.getenv("ANTHROPIC_ULTIMATE_MODEL", "openrouter/free")
+MODELS = [MODEL_PRIMARY, MODEL_FALLBACK, MODEL_ULTIMATE]
 
 _client = None
 
@@ -127,6 +128,22 @@ def parse_scenario(nl_input: str, current_policy: Dict[str, Any], budget: float,
             "reasoning": "Input is supply chain issue"
         }
 
+    # Valid scenario keywords — input must contain at least one to be considered valid
+    # Note: "change" is excluded to avoid false positives like "climate change"
+    VALID_SCENARIO_KWS = [
+        "budget", "spend", "service", "target", "dcc", "demand", "forecast",
+        "season", "fall", "holiday", "spring", "summer", "winter", "fill rate",
+        "lead time", "cost", "increase", "decrease", "reduce", "boost", "cut",
+        "drop", "spike", "double", "half", "overforecast", "underforecast",
+        "adjust", "modify", "update", "raise", "lower"
+    ]
+    if not any(kw in nl_lower for kw in VALID_SCENARIO_KWS):
+        return {
+            "action": "invalid", "error": True,
+            "guidance": f"'{nl_input}' is not a valid scenario. Supported scenarios: budget change (increase/decrease), service target change, demand forecast change (over/under), season change, fill rate change. Please use a supported scenario.",
+            "reasoning": f"No valid scenario keywords found in input: {nl_input}"
+        }
+
     result = {"action": "unknown", "value": 0, "segments": ["all"], "reasoning": "Parsed from input"}
 
     # Use word-boundary aware checks - handle plural forms like "drops", "increases"
@@ -135,8 +152,63 @@ def parse_scenario(nl_input: str, current_policy: Dict[str, Any], budget: float,
     has_budget = "budget" in nl_lower or "spend" in nl_lower
     has_service = "service" in nl_lower or "target" in nl_lower or "dcc" in nl_lower
     has_demand = "demand" in nl_lower
+    has_overforecast = re.search(r'\b(overforecast)\b', nl_lower)
+    has_underforecast = re.search(r'\b(underforecast)\b', nl_lower)
+    has_season = re.search(r'\b(season|fall|holiday|spring|summer|winter|fall/holiday|spring/summer)\b', nl_lower)
+    has_fill_rate = re.search(r'\b(fill rate|fillrate)\b', nl_lower)
 
-    # Determine action
+    # Handle overforecast -> demand change (demand lower than forecasted)
+    if has_overforecast:
+        result["action"] = "demand_change"
+        # Check for percentage (e.g., "overforecast by 20%")
+        pct_match = re.search(r'(\d+\.?\d*)\s*%', nl_lower)
+        if pct_match:
+            val = 1.0 - float(pct_match.group(1)) / 100.0  # 20% overforecast -> demand is 80% of forecast
+        else:
+            val = 0.8  # Default 20% drop
+        result["value"] = val
+        return result
+
+    # Handle underforecast -> demand change (demand higher than forecasted)
+    if has_underforecast:
+        result["action"] = "demand_change"
+        # Check for percentage (e.g., "underforecast by 20%")
+        pct_match = re.search(r'(\d+\.?\d*)\s*%', nl_lower)
+        if pct_match:
+            val = 1.0 + float(pct_match.group(1)) / 100.0  # 20% underforecast -> demand is 120% of forecast
+        else:
+            val = 1.2  # Default 20% spike
+        result["value"] = val
+        return result
+
+    # Handle season change
+    if has_season:
+        result["action"] = "season_change"
+        season_match = re.search(r'(fall|holiday|spring|summer|winter|fall/holiday|spring/summer)', nl_lower)
+        result["value"] = season_match.group(1) if season_match else "unknown"
+        return result
+
+    # Handle fill rate change
+    if has_fill_rate:
+        result["action"] = "fill_rate_change"
+        # Check for increase/decrease
+        if has_increase:
+            result["value"] = 1.1  # Default 10% increase
+        elif has_decrease:
+            result["value"] = 0.9  # Default 10% decrease
+        else:
+            result["value"] = 1.0
+        # Check for percentage
+        pct_match = re.search(r'(\d+\.?\d*)\s*%', nl_lower)
+        if pct_match:
+            val = float(pct_match.group(1))
+            if has_increase:
+                result["value"] = 1.0 + val / 100.0
+            elif has_decrease:
+                result["value"] = 1.0 - val / 100.0
+        return result
+
+    # Determine action for other cases
     if has_increase:
         if has_budget:
             result["action"] = "increase_budget"
@@ -300,6 +372,14 @@ def parse_scenario(nl_input: str, current_policy: Dict[str, Any], budget: float,
             result["value"] = budget * 0.5
             return result
 
+    # Reject if no valid action was parsed
+    if result["action"] == "unknown":
+        return {
+            "action": "invalid", "error": True,
+            "guidance": f"'{nl_input}' is not a valid scenario. Could not parse action. Supported scenarios: budget change (increase/decrease), service target change, demand forecast change (over/under), season change, fill rate change. Please be more specific.",
+            "reasoning": f"No valid action parsed from input: {nl_input}"
+        }
+
     return result
 
 def narrate_tradeoff(old_policy: Dict[str, Any], new_policy: Dict[str, Any], budget_change: float, service_change: float) -> str:
@@ -363,6 +443,23 @@ def _fallback_decision(decision_context: str, budget: float) -> Dict[str, Any]:
             "recommendation": "Invalid input",
             "error": True,
             "guidance": "Describe a mid-season issue: demand change, supply delay, inventory problem, or cost increase."
+        }
+
+    # Valid decision keywords — reject if no valid keywords present
+    # Note: "change" is excluded to avoid false positives like "climate change"
+    VALID_DECISION_KWS = [
+        "demand", "forecast", "overforecast", "underforecast", "supply", "vendor",
+        "supplier", "shipping", "transport", "delay", "lead time", "inventory",
+        "excess", "stockout", "shortage", "cost", "tariff", "material", "logistics",
+        "issue", "problem", "mid-season", "chase", "hold", "expedite", "negotiate",
+        "markdown", "increase", "decrease", "spike", "drop"
+    ]
+    if not any(kw in ctx for kw in VALID_DECISION_KWS):
+        return {
+            "options": [],
+            "recommendation": "Invalid input",
+            "error": True,
+            "guidance": f"'{decision_context}' is not a valid high-stakes issue. Supported issues: demand changes, supply chain delays, inventory problems, cost increases. Please describe a valid mid-season issue."
         }
 
     # Overforecast: demand is LOWER than forecasted -> Hold
@@ -485,8 +582,27 @@ def frame_decision(decision_context: str, dept_id: int, budget: float, current_s
             "error": True,
             "guidance": "Describe a mid-season issue: demand change, supply delay, inventory problem, or cost increase."
         }
+
+    ctx_lower = decision_context.lower().strip()
+
+    # Valid high-stakes decision keywords — input must contain at least one
+    # Note: "change" is excluded to avoid false positives like "climate change"
+    VALID_DECISION_KWS = [
+        "demand", "forecast", "overforecast", "underforecast", "supply", "vendor",
+        "supplier", "shipping", "transport", "delay", "lead time", "inventory",
+        "excess", "stockout", "shortage", "cost", "tariff", "material", "logistics",
+        "issue", "problem", "mid-season", "chase", "hold", "expedite", "negotiate",
+        "markdown", "increase", "decrease", "spike", "drop"
+    ]
+    if not any(kw in ctx_lower for kw in VALID_DECISION_KWS):
+        return {
+            "options": [],
+            "recommendation": "Invalid input",
+            "error": True,
+            "guidance": f"'{decision_context}' is not a valid high-stakes issue. Supported issues: demand changes (over/under forecast), supply chain delays, inventory problems (excess/stockout), cost increases. Please describe a valid mid-season issue."
+        }
+
     # KEYWORD PRE-CHECK: Handle clear overforecast/underforecast cases directly
-    ctx_lower = decision_context.lower()
     hold_kws = ["overforecast", "forecast high", "excess inventory", "too high", "demand lower", "demand drop", "demand half"]
     chase_kws = ["underforecast", "shortage", "demand higher", "too low", "forecast drop", "forecast low", "demand spike"]
 
