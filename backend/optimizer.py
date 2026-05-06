@@ -515,7 +515,7 @@ def optimize_policy(
             # Per-SKU safety stock
             lead_time = 6.0
             weekly_std = sku["demand_std"] / 4.0
-            z_score = _inverse_normal_cdf(target_dcc / 100.0)
+            z_score = _inverse_normal_cdf(sku_dcc / 100.0)
             safety_units = z_score * math.sqrt(lead_time) * weekly_std
             safety_pct = (safety_units / max(sku["pog_capacity"], 1)) * 100.0
             # Per-SKU MOQ

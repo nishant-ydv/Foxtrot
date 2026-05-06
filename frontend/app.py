@@ -203,12 +203,13 @@ def cal_scenario(nl_input: str, current_policy: Dict, budget: float, target: flo
                 budget=budget,
                 service_target=target
             )
+            # PROPAGATE ERROR: If LLM layer says invalid, return error properly
             if llm_response.get("error"):
                 return {
-                    "feasible": True,
-                    "narration": f"Scenario '{nl_input}' noted. LLM narration unavailable.",
-                    "budget_change": 0.0,
-                    "service_change": 0.0
+                    "feasible": False,
+                    "error": True,
+                    "guidance": llm_response.get("guidance", "Invalid scenario input."),
+                    "narration": f"Invalid scenario: {llm_response.get('guidance', '')}"
                 }
             # Adjust budget/target based on parsed action
             new_budget = budget
@@ -294,6 +295,14 @@ def cal_decision(context: str, dept_id: int, budget: float, service: float, dept
                 budget=budget,
                 current_service=service
             )
+            # PROPAGATE ERROR: If LLM layer says invalid, return error properly
+            if llm_response.get("error"):
+                return {
+                    "error": True,
+                    "guidance": llm_response.get("guidance", "Invalid decision input."),
+                    "options": [],
+                    "recommendation": "Invalid input"
+                }
             return {
                 "context": context,
                 "options": llm_response.get("options", []),

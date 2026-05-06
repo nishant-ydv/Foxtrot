@@ -183,8 +183,8 @@ No incumbent or startup offers **natural language scenario exploration** at the 
 - [x] LLM narration (trade-off analysis)
 - [x] Insufficient budget handling (3 options: increase, lower, keep)
 - [x] Segment-level policy display (DCC, safety stock, allocations)
-- [ ] SKU-level policy details (in progress)
-- [ ] Mid-season decision center (next)
+- [x] SKU-level policy details (toggle in UI)
+- [x] Mid-season decision center (with LLM fallback)
 
 ---
 

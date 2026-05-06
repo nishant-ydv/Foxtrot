@@ -26,6 +26,9 @@ frontend/.DS_Store
 # Claude Code
 .claude/
 
+# Presentation files (local only)
+presentation/
+
 # Internal documentation (brainstorming notes, not for public repo)
 structure.md
 answers.md
